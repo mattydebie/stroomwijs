@@ -196,5 +196,8 @@ ol.steps li::before{content:counter(s);font-family:var(--display);font-weight:70
 .pcard .pts{font-family:var(--mono);font-size:.78rem;color:var(--muted);grid-column:3;grid-row:1}
 .pcard .dsc{grid-column:2}
 .pnotes{margin:12px 0 0;padding-left:1.2em;font-size:.88rem;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.plactions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.plsaved{font-size:.85rem;color:var(--muted)}
+#plSchema{display:block}
 footer{padding-top:32px;font-size:.88rem;color:var(--muted);display:flex;flex-direction:column;gap:8px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}

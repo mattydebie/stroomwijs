@@ -15,8 +15,20 @@ const DEV=[
  ["oven","Oven (vast)","vast","2,5","C20",true],["kookplaat","Kookplaat","vast","6","C32",true],["boiler","Elektrische boiler","vast","2,5","C20",false],
  ["warmtepomp","Warmtepomp","vast","volgens fabrikant","volgens fabrikant",false],["laadpaal","Laadpaal","laad","6","C32",true],["omvormer","Omvormer zonnepanelen","vast","volgens omvormer","volgens omvormer",true]];
 const dev={};DEV.forEach(d=>dev[d[0]]=d[5]);
-const rowsEl=document.getElementById("plRows"),devEl=document.getElementById("plDev"),out=document.getElementById("plOut");
+const STORE_KEY="stroomwijs-plan-v1";
+try{const saved=JSON.parse(localStorage.getItem(STORE_KEY));
+ if(saved&&Array.isArray(saved.rooms)){
+  rooms=saved.rooms;uid=saved.uid||(rooms.length?Math.max(...rooms.map(r=>r.id))+1:0);
+  if(saved.dev)DEV.forEach(d=>{if(d[0] in saved.dev)dev[d[0]]=!!saved.dev[d[0]]});
+ }
+}catch(e){}
+const rowsEl=document.getElementById("plRows"),devEl=document.getElementById("plDev"),out=document.getElementById("plOut"),schemaEl=document.getElementById("plSchema"),savedTag=document.getElementById("plSaved");
 const opt=(o,v)=>Object.entries(o).map(([k,t])=>`<option value="${k}" ${k===v?"selected":""}>${t}</option>`).join("");
+let saveTimer=null;
+function saveLocal(){
+ try{localStorage.setItem(STORE_KEY,JSON.stringify({rooms,dev,uid}))}catch(e){return}
+ if(savedTag){savedTag.textContent="Plan bewaard in deze browser";clearTimeout(saveTimer);saveTimer=setTimeout(()=>savedTag.textContent="",2500);}
+}
 function renderRows(){
  rowsEl.innerHTML=rooms.map(r=>`<tr data-id="${r.id}">
   <td><input id="plN${r.id}" aria-label="Naam ruimte" value="${r.naam.replace(/"/g,"&quot;")}" data-f="naam"></td>
@@ -26,7 +38,7 @@ function renderRows(){
   <td><input id="plS${r.id}" type="number" min="0" max="40" value="${r.stop}" aria-label="Stopcontactpunten" data-f="stop"></td>
   <td><button type="button" class="rm" aria-label="Verwijder ${r.naam}">×</button></td></tr>`).join("");
 }
-devEl.innerHTML=DEV.map(d=>`<label class="check" for="plD_${d[0]}"><input type="checkbox" id="plD_${d[0]}" data-d="${d[0]}" ${d[5]?"checked":""}> ${d[1]}</label>`).join("");
+devEl.innerHTML=DEV.map(d=>`<label class="check" for="plD_${d[0]}"><input type="checkbox" id="plD_${d[0]}" data-d="${d[0]}" ${dev[d[0]]?"checked":""}> ${d[1]}</label>`).join("");
 rowsEl.addEventListener("input",e=>{const tr=e.target.closest("tr");const r=rooms.find(x=>x.id==tr.dataset.id);const f=e.target.dataset.f;
  r[f]=(f==="licht"||f==="stop")?Math.max(0,parseInt(e.target.value)||0):e.target.value;compute();});
 rowsEl.addEventListener("click",e=>{if(!e.target.classList.contains("rm"))return;const tr=e.target.closest("tr");rooms=rooms.filter(x=>x.id!=tr.dataset.id);renderRows();compute();});
@@ -72,6 +84,57 @@ function compute(){
  out.innerHTML=`<div class="psum"><span class="chip">${C.length} kringen</span><span class="chip">${nd} × differentieel 30 mA</span><span class="chip">hoofddifferentieel 300 mA · type A</span></div>
   <div class="pgrid">${groups.map((g,i)=>card(`Differentieel ${i+1}`,"30 mA · type A",g)).join("")}${card("Direct achter 300 mA","vaste toestellen",vast,"vast")}${card("Eigen differentieel","30 mA + DC-detectie of type B",laad,"laad")}</div>
   ${notes.length?`<ul class="pnotes">${notes.map(n=>`<li>${n}</li>`).join("")}</ul>`:""}`;
+ drawSchema(groups,vast,laad,spec);
+ saveLocal();
 }
+
+/* eendraadschema, opgebouwd uit dezelfde groepen als de kaarten hierboven */
+function symIcon(key,tx,ty,scale){
+ const s=window.SYMBOLS&&window.SYMBOLS[key];
+ return s?`<g transform="translate(${tx},${ty}) scale(${scale})">${s[1]}</g>`:"";
+}
+function drawSchema(groups,vast,laad,spec){
+ if(!schemaEl)return;
+ const cats=[...groups.map((g,i)=>({t:`Differentieel ${i+1}`,sub:"30 mA · type A",items:g,color:"var(--neutral)"})),
+  vast.length?{t:"Direct achter 300 mA",sub:"vaste toestellen",items:vast,color:"var(--phase)"}:null,
+  laad.length?{t:"Eigen differentieel",sub:"30 mA + DC / type B",items:laad,color:"var(--warn)"}:null].filter(Boolean);
+ if(!cats.length){schemaEl.innerHTML="";schemaEl.removeAttribute("viewBox");return;}
+ const LW=170,MARGIN=30;
+ let i=0;
+ cats.forEach(cat=>{cat.items.forEach(it=>{it.x=MARGIN+i*LW+LW/2;i++;});cat.x=(cat.items[0].x+cat.items[cat.items.length-1].x)/2;});
+ const leaves=cats.flatMap(c=>c.items);
+ const rootX=(leaves[0].x+leaves[leaves.length-1].x)/2;
+ const W=MARGIN*2+leaves.length*LW,H=340;
+ const line=(x1,y1,x2,y2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" style="stroke:var(--ink)" stroke-width="2"/>`;
+ const box=(cx,y,h,t1,t2,color)=>`<rect x="${cx-65}" y="${y}" width="130" height="${h}" rx="4" style="fill:var(--sunk);stroke:${color||"var(--ink)"}" stroke-width="1.5"/><text x="${cx}" y="${y+16}" text-anchor="middle" font-size="12" font-weight="600" style="fill:var(--ink)">${t1}</text><text x="${cx}" y="${y+30}" text-anchor="middle" font-size="10.5" font-family="IBM Plex Mono,monospace" style="fill:var(--muted)">${t2}</text>`;
+ const kindLabel={licht:"Verlichting",stop:"Stopcontacten",gemengd:"Licht + stopcontacten"};
+ const kindIcon={licht:"licht",stop:"cd",gemengd:"cd"};
+ let svg=box(rootX,10,36,"Teller","kWh","var(--ink)")+line(rootX,46,rootX,70)
+  +box(rootX,70,36,"Hoofddifferentieel","300 mA · type A","var(--ink)")+line(rootX,106,rootX,124);
+ if(cats.length>1)svg+=line(cats[0].x,124,cats[cats.length-1].x,124);
+ cats.forEach(cat=>{
+  svg+=line(cat.x,124,cat.x,138)+box(cat.x,138,36,cat.t,cat.sub,cat.color);
+  svg+=line(cat.x,174,cat.x,190);
+  if(cat.items.length>1)svg+=line(cat.items[0].x,190,cat.items[cat.items.length-1].x,190);
+  cat.items.forEach(it=>{
+   svg+=line(it.x,190,it.x,204)+box(it.x,204,34,it.l,spec(it),cat.color);
+   svg+=line(it.x,238,it.x,254);
+   const icoKey=kindIcon[it.k];
+   if(icoKey){svg+=symIcon(icoKey,it.x-13,254,0.29);svg+=`<text x="${it.x+18}" y="272" font-size="12" font-weight="600" style="fill:var(--ink)">×${it.p}</text>`;
+    svg+=`<text x="${it.x}" y="298" text-anchor="middle" font-size="10.5" style="fill:var(--muted)">${kindLabel[it.k]||it.k}</text>`;
+   }else{svg+=`<text x="${it.x}" y="270" text-anchor="middle" font-size="11.5" style="fill:var(--muted)">${it.d}</text>`;}
+  });
+ });
+ schemaEl.setAttribute("viewBox",`0 0 ${W} ${H}`);
+ schemaEl.setAttribute("width",W);schemaEl.setAttribute("height",H);
+ schemaEl.innerHTML=svg;
+}
+
+document.getElementById("plExport")?.addEventListener("click",()=>{
+ const blob=new Blob([JSON.stringify({rooms,dev},null,2)],{type:"application/json"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="stroomwijs-plan.json";
+ document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(a.href);
+});
+
 renderRows();compute();
 })();
