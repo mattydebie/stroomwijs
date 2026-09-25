@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stroomwijs AREI-cursus</title>
+<meta name="description" content="Interactieve cursus voor doe-het-zelvers over het AREI Boek 1: kringen, differentiëlen, schakelingen, badkamer, keuring, laadpaal, zonnepanelen en foutzoeken.">
+<meta property="og:title" content="Stroomwijs AREI-cursus">
+<meta property="og:description" content="Leer je elektrische installatie aanleggen volgens het Belgische AREI, met klikbare schema's, een kringplanner en toetsen.">
+<meta name="theme-color" content="#EDF0F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12181D" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2315212B'/%3E%3Crect x='5' y='9' width='22' height='4' rx='2' fill='%23A0612E'/%3E%3Crect x='5' y='15' width='22' height='4' rx='2' fill='%232A5C9E'/%3E%3Crect x='5' y='21' width='11' height='4' rx='2' fill='%232F8A3C'/%3E%3Crect x='16' y='21' width='11' height='4' rx='2' fill='%23E3C21C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/quiz-data.js" defer></script>
+<script src="assets/js/core.js" defer></script>
+<script src="assets/js/schakelingen.js" defer></script>
+<script src="assets/js/klemmen.js" defer></script>
+<script src="assets/js/symbolen.js" defer></script>
+<script src="assets/js/foutzoeken.js" defer></script>
+<script src="assets/js/kringplanner.js" defer></script>
+</head>
+<body>
+<div class="wrap" lang="nl">
+<nav class="side" aria-label="Modules">
+  <div class="brand">
+    <div class="wire" aria-hidden="true"><span class="w-ph"></span><span class="w-n"></span><span class="w-pe"></span></div>
+    <b>Stroomwijs</b>
+    <div class="prog"><span id="progtxt">0 van 0 vragen juist</span><div class="bar"><i id="progbar"></i></div></div>
+  </div>
+  <ol id="navlist"></ol>
+</nav>
+
+<main>
+<header class="hero">
+  <span class="eyebrow">Cursus voor doe-het-zelvers · AREI Boek 1 · stand september 2026</span>
+  <h1>Je eigen installatie, conform het AREI</h1>
+  <p class="lede">Van de kleur van een draad tot de differentieel van je laadpaal. Elke module legt uit wat het AREI eist, waarom die regel bestaat en hoe je hem in je eigen woning toepast. Sluit elke module af met de toets; je voortgang blijft in deze browser bewaard.</p>
+  <div class="facts">
+    <span class="chip">15 modules</span><span class="chip">kringplanner</span><span class="chip">foutzoek-wegwijzer</span><span class="chip">klikbare schakelschema's</span><span class="chip">kringcontrole-tool</span><span class="chip">incl. badkamer 2025</span><span class="chip">incl. DC-regels april 2026</span>
+  </div>
+</header>
+
+<!-- 0 -->
+<section class="mod" data-name="Voor je begint">
+  <div class="modhead"><span class="num">MODULE</span><h2>Voor je begint</h2>
+  <p class="goals"><b>Je leert:</b> wat je als particulier zelf mag doen, wat altijd verplicht blijft, en hoe je veilig werkt.</p></div>
+  <p>Het AREI (Algemeen Reglement op de Elektrische Installaties) is het Belgische koninklijk besluit dat vastlegt hoe elektrische installaties moeten worden ontworpen, aangelegd en gekeurd. Sinds 1 juni 2020 is het opgesplitst in drie boeken. Voor een woning heb je <b>Boek 1</b> nodig: installaties op laagspanning en zeer lage spanning.</p>
+  <div class="rule"><span class="tag">Regel</span>
+    <p>Als particulier mag je je eigen woning zelf bekabelen. Wat je <b>niet</b> zelf kan doen: de installatie goedkeuren. Een nieuwe installatie, een uitbreiding of een belangrijke wijziging moet vóór ingebruikname gekeurd worden door een erkend keuringsorganisme. De netbeheerder (Fluvius in Vlaanderen) opent geen nieuwe meter zonder conform keuringsverslag.</p>
+  </div>
+  <div class="why"><span class="tag">Waarom dit belangrijk is</span>
+    <p>Bij brand of een ongeval vraagt je verzekeraar naar het keuringsverslag. Een installatie die niet conform is, kan tussenkomst kosten. De keuring is dus geen formaliteit: ze is jouw bewijs.</p>
+  </div>
+  <h3>Veilig werken: de vijf gouden regels</h3>
+  <ol class="steps">
+    <li><div><b>Vrijschakelen.</b> Zet de automaat van de kring uit, en bij twijfel de hoofdschakelaar.</div></li>
+    <li><div><b>Beveiligen tegen herinschakelen.</b> Plak de automaat af of hang er een briefje aan. Huisgenoten zetten "de zekering die gesprongen is" graag terug op.</div></li>
+    <li><div><b>Spanningsloosheid meten.</b> Met een tweepolige spanningstester, niet met een schroevendraaier met lampje. Test de tester eerst op een stopcontact dat wél onder spanning staat.</div></li>
+    <li><div><b>Aarden en kortsluiten.</b> In woningen zelden nodig; relevant voor grotere installaties en PV-strings.</div></li>
+    <li><div><b>Afschermen van nabije delen onder spanning.</b> Bijvoorbeeld de ingangsklemmen van je bord, die blijven onder spanning, ook als de hoofdschakelaar uit staat.</div></li>
+  </ol>
+  <div class="danger"><span class="tag">Opgelet</span>
+    <p>Alles vóór de meter en de klemmen van de meter zelf zijn van de netbeheerder. Daar kom je niet aan. Ook de DC-kant van zonnepanelen blijft onder spanning zolang er licht op valt; een omvormer uitschakelen maakt de strings niet spanningsloos.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 1 -->
+<section class="mod" data-name="Basis">
+  <div class="modhead"><span class="num">MODULE</span><h2>Basis: spanning, stroom en draad</h2>
+  <p class="goals"><b>Je leert:</b> rekenen met vermogen, de kleurcode herkennen en de juiste kabel kiezen.</p></div>
+  <p>Een woning in België krijgt 230 V wisselspanning (eenfasig), of 3×230 V of 3×400 V (driefasig). Het vermogen van een toestel is spanning maal stroom: <code>P = U × I</code>. Een waterkoker van 2300 W trekt dus 10 A.</p>
+  <div class="calc" aria-label="Rekenhulp vermogen">
+    <label for="cP">Vermogen (W)<input id="cP" type="number" value="3500" min="0"></label>
+    <label for="cU">Spanning (V)<input id="cU" type="number" value="230" min="1"></label>
+    <div>Stroom: <output id="cI">15,2 A</output></div>
+  </div>
+  <h3>Kleurcode van geleiders</h3>
+  <figure>
+    <svg viewBox="0 0 520 150" width="100%" role="img" aria-label="Kleurcode: fase bruin, zwart of grijs; nul blauw; aarde geel-groen">
+      <defs><pattern id="gy" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="8" height="16" fill="#2F8A3C"/><rect x="8" width="8" height="16" fill="#E3C21C"/></pattern></defs>
+      <rect x="10" y="14" width="180" height="16" rx="8" fill="#7A4A26"/><rect x="10" y="34" width="180" height="10" rx="5" fill="#222"/><rect x="10" y="48" width="180" height="10" rx="5" fill="#8A8F94"/>
+      <text x="205" y="30" fill="currentColor" style="fill:var(--ink)" font-size="14" font-weight="600">Fase (L)</text>
+      <text x="205" y="50" style="fill:var(--muted)" font-size="12">bruin; bij meerfasig ook zwart en grijs</text>
+      <rect x="10" y="78" width="180" height="16" rx="8" fill="#2A5C9E"/>
+      <text x="205" y="92" style="fill:var(--ink)" font-size="14" font-weight="600">Nul (N)</text>
+      <text x="205" y="108" style="fill:var(--muted)" font-size="12">blauw, alleen voor de nulgeleider</text>
+      <rect x="10" y="118" width="180" height="16" rx="8" fill="url(#gy)"/>
+      <text x="205" y="132" style="fill:var(--ink)" font-size="14" font-weight="600">Beschermingsgeleider (PE)</text>
+      <text x="205" y="146" style="fill:var(--muted)" font-size="12">geel-groen, uitsluitend voor aarding</text>
+    </svg>
+    <figcaption>Geel-groen gebruik je nooit voor iets anders dan aarding. Blauw mag als fase in een kabel zonder nul, maar alleen als je het aan beide uiteinden duidelijk markeert. Doe het liever niet.</figcaption>
+  </figure>
+  <h3>Kabeltypes die je tegenkomt</h3>
+  <div class="tbl"><table>
+    <tr><th>Type</th><th>Wat</th><th>Waar gebruiken</th></tr>
+    <tr><td class="num">VOB</td><td>Enkele geïsoleerde draad</td><td>Altijd in een buis of goot (inbouw of opbouw)</td></tr>
+    <tr><td class="num">XVB (-F2)</td><td>Kabel met meerdere aders en stevige mantel</td><td>Zichtbaar op de muur, in de grond (met bescherming), buiten, naar tuinhuis</td></tr>
+    <tr><td class="num">EXVB</td><td>Gewapende kabel</td><td>In de grond waar mechanische bescherming nodig is</td></tr>
+    <tr><td class="num">SVV / H05VV-F</td><td>Soepel snoer</td><td>Alleen voor toestellen en verlengsnoeren, niet als vaste bekabeling</td></tr>
+  </table></div>
+  <p>Kabels hebben ook een brandklasse volgens de Europese bouwproductenverordening (CPR), zoals <code>Eca</code> of <code>Cca-s1,d1,a1</code>. Controleer bij aankoop dat de kabel de klasse heeft die het AREI voor jouw toepassing vraagt; bij twijfel neem je de betere klasse.</p>
+  <div class="quiz"></div>
+</section>
+
+<!-- NEW 2 -->
+<section class="mod" data-name="Materiaal & begrippen">
+  <div class="modhead"><span class="num">MODULE</span><h2>Materiaal en begrippen</h2>
+  <p class="goals"><b>Je leert:</b> de onderdelen van je bord, de soorten schakelaars en stopcontacten, en de woorden die het AREI en je keurder gebruiken.</p></div>
+  <p>Voor je kringen gaat ontwerpen, moet je weten welke stukken er in je installatie zitten en wat ze doen. Deze module is je woordenboek. Kom gerust terug als je verder in de cursus een term tegenkomt.</p>
+
+  <h3>Kring, stroombaan en punt</h3>
+  <ul class="tight">
+    <li><b>Stroombaan of kring:</b> alles wat achter één automaat hangt. Het AREI zegt "stroombaan", elektriciens zeggen meestal "kring".</li>
+    <li><b>Eindstroombaan:</b> een kring waar rechtstreeks verbruikers op hangen (lampen, stopcontacten, een toestel). Een kabel naar een onderverdeelbord is geen eindstroombaan.</li>
+    <li><b>Punt:</b> één plaats op de kring. Een lichtpunt is één plaats waar een lamp hangt. Een stopcontactpunt is één afdekplaat met één of meer stopcontacten. Een dubbel stopcontact onder één plaat telt dus als één punt.</li>
+    <li><b>Toegewezen kring:</b> een kring voor één toestel, bijvoorbeeld de wasmachine.</li>
+    <li><b>Sectie:</b> de doorsnede van het koper in een draad, in mm². Hoe dikker, hoe meer stroom de draad aankan zonder warm te worden.</li>
+  </ul>
+
+  <h3>Wat zit er in je verdeelbord</h3>
+  <p>Het verdeelbord (zekeringkast) is waar de voeding van de meter over je kringen verdeeld wordt. Alle toestellen klikken op een metalen rail van 35 mm, de <b>DIN-rail</b>. Hun breedte meet je in <b>modules</b> van 18 mm; een automaat is meestal 1 module breed.</p>
+  <div class="tbl"><table>
+    <tr><th>Onderdeel</th><th>Wat doet het</th></tr>
+    <tr><td><b>Hoofdschakelaar</b></td><td>Schakelt de hele installatie uit. Vaak gecombineerd met de hoofddifferentieel.</td></tr>
+    <tr><td><b>Automaat</b> (automatische zekering)</td><td>Schakelt een kring uit bij te veel stroom. Na een fout zet je hem gewoon weer op. Op het toestel staat bv. <code>C16</code>: curve C, 16 A.</td></tr>
+    <tr><td><b>Smeltzekering</b></td><td>De oudere variant: een patroon met een draadje dat doorsmelt. Na een fout vervang je het patroon. Kom je nog tegen in oude borden.</td></tr>
+    <tr><td><b>Differentieel</b> (verliesstroomschakelaar)</td><td>Schakelt uit als er stroom weglekt naar de aarde. Beschermt mensen en voorkomt brand. Uitgelegd in module 05.</td></tr>
+    <tr><td><b>Nulrail en aardrail</b></td><td>Verzamelklemmen voor alle blauwe en alle geel-groene draden.</td></tr>
+    <tr><td><b>Kam (busbar)</b></td><td>Koperen strip die de automaten onderling voedt, zodat je niet elke automaat apart moet doorverbinden.</td></tr>
+    <tr><td><b>Onderverdeelbord</b></td><td>Een tweede, kleiner bord (bv. in de garage of op zolder), gevoed vanuit het hoofdbord.</td></tr>
+  </table></div>
+  <div class="why"><span class="tag">Overbelasting of kortsluiting?</span>
+    <p>Een automaat reageert op twee soorten fouten. Bij <b>overbelasting</b> vraag je iets te veel stroom, bijvoorbeeld een droogkast en een oven op dezelfde kring. De automaat laat dat even toe en schakelt na enkele seconden tot minuten uit, voor de draad te warm wordt. Bij <b>kortsluiting</b> raken fase en nul elkaar rechtstreeks. Dan loopt er in een flits honderden ampère en schakelt hij meteen uit. De letter op de automaat (B, C, D) bepaalt hoe snel hij bij grote stromen reageert; in woningen gebruik je bijna altijd C.</p>
+  </div>
+
+  <h3>Schakelaars: enkelpolig en tweepolig</h3>
+  <p>Een <b>pool</b> is één geleider die de schakelaar onderbreekt. Een <b>enkelpolige</b> schakelaar onderbreekt alleen de fase; de nul loopt gewoon door naar de lamp. Een <b>tweepolige</b> schakelaar onderbreekt fase én nul tegelijk. Op de achterkant zie je het verschil: een enkelpolige heeft twee klemmen, een tweepolige vier.</p>
+  <figure>
+    <svg viewBox="0 0 600 230" width="100%" role="img" aria-label="Enkelpolige schakelaar onderbreekt enkel de fase; tweepolige schakelaar onderbreekt fase en nul">
+      <g font-size="12">
+        <text x="20" y="20" style="fill:var(--ink)" font-weight="600" font-size="14">Enkelpolig</text>
+        <text x="20" y="62" style="fill:var(--phase)" font-weight="600">L</text>
+        <text x="20" y="122" style="fill:var(--neutral)" font-weight="600">N</text>
+        <line x1="36" y1="58" x2="110" y2="58" style="stroke:var(--phase)" stroke-width="3"/>
+        <circle cx="112" cy="58" r="4" style="fill:var(--phase)"/>
+        <line x1="112" y1="58" x2="150" y2="40" style="stroke:var(--ink)" stroke-width="3"/>
+        <circle cx="156" cy="58" r="4" style="fill:var(--phase)"/>
+        <line x1="156" y1="58" x2="230" y2="58" style="stroke:var(--phase)" stroke-width="3"/>
+        <line x1="36" y1="118" x2="230" y2="118" style="stroke:var(--neutral)" stroke-width="3"/>
+        <line x1="230" y1="58" x2="230" y2="72" style="stroke:var(--phase)" stroke-width="3"/>
+        <line x1="230" y1="104" x2="230" y2="118" style="stroke:var(--neutral)" stroke-width="3"/>
+        <circle cx="230" cy="88" r="16" style="fill:var(--surface);stroke:var(--ink)" stroke-width="2"/>
+        <line x1="219" y1="77" x2="241" y2="99" style="stroke:var(--ink)" stroke-width="2"/><line x1="241" y1="77" x2="219" y2="99" style="stroke:var(--ink)" stroke-width="2"/>
+        <text x="20" y="160" style="fill:var(--muted)">Onderbreekt enkel de fase.</text>
+        <text x="20" y="176" style="fill:var(--muted)">De lamp is uit, maar de nul blijft verbonden.</text>
+
+        <text x="320" y="20" style="fill:var(--ink)" font-weight="600" font-size="14">Tweepolig</text>
+        <text x="320" y="62" style="fill:var(--phase)" font-weight="600">L</text>
+        <text x="320" y="122" style="fill:var(--neutral)" font-weight="600">N</text>
+        <line x1="336" y1="58" x2="410" y2="58" style="stroke:var(--phase)" stroke-width="3"/>
+        <circle cx="412" cy="58" r="4" style="fill:var(--phase)"/>
+        <line x1="412" y1="58" x2="450" y2="40" style="stroke:var(--ink)" stroke-width="3"/>
+        <circle cx="456" cy="58" r="4" style="fill:var(--phase)"/>
+        <line x1="456" y1="58" x2="530" y2="58" style="stroke:var(--phase)" stroke-width="3"/>
+        <line x1="336" y1="118" x2="410" y2="118" style="stroke:var(--neutral)" stroke-width="3"/>
+        <circle cx="412" cy="118" r="4" style="fill:var(--neutral)"/>
+        <line x1="412" y1="118" x2="450" y2="100" style="stroke:var(--ink)" stroke-width="3"/>
+        <circle cx="456" cy="118" r="4" style="fill:var(--neutral)"/>
+        <line x1="456" y1="118" x2="530" y2="118" style="stroke:var(--neutral)" stroke-width="3"/>
+        <line x1="430" y1="49" x2="430" y2="109" style="stroke:var(--ink)" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <line x1="530" y1="58" x2="530" y2="72" style="stroke:var(--phase)" stroke-width="3"/>
+        <line x1="530" y1="104" x2="530" y2="118" style="stroke:var(--neutral)" stroke-width="3"/>
+        <circle cx="530" cy="88" r="16" style="fill:var(--surface);stroke:var(--ink)" stroke-width="2"/>
+        <line x1="519" y1="77" x2="541" y2="99" style="stroke:var(--ink)" stroke-width="2"/><line x1="541" y1="77" x2="519" y2="99" style="stroke:var(--ink)" stroke-width="2"/>
+        <text x="320" y="160" style="fill:var(--muted)">Onderbreekt fase én nul tegelijk</text>
+        <text x="320" y="176" style="fill:var(--muted)">(gekoppeld, stippellijn).</text>
+        <text x="20" y="215" style="fill:var(--ink)">Een enkelpolige schakelaar zet je altijd in de fase, nooit in de nul.</text>
+      </g>
+    </svg>
+    <figcaption>Waarom bestaat tweepolig? Omdat bij een verwisseling van fase en nul (in de bekabeling of op een oude installatie) een enkelpolige schakelaar in de nul zou komen te zitten. Dan is de lamp wel uit, maar staat de fitting nog onder spanning. Een tweepolige schakelaar sluit dat risico uit.</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>Schakeling</th><th>Wanneer</th><th>Hoe</th></tr>
+    <tr><td><b>Enkelvoudig</b></td><td>Eén lamp, één bedieningsplaats</td><td>Eén enkelpolige schakelaar</td></tr>
+    <tr><td><b>Dubbel</b> (serieschakelaar)</td><td>Twee lampen of groepen apart bedienen vanaf één plaats</td><td>Twee schakelaars onder één plaat</td></tr>
+    <tr><td><b>Hotelschakeling</b> (wisselschakeling)</td><td>Eén lamp vanaf twee plaatsen, bv. boven en onder aan de trap</td><td>Twee wisselschakelaars met twee draden ertussen (de "wisseldraden")</td></tr>
+    <tr><td><b>Kruisschakeling</b></td><td>Drie of meer bedieningsplaatsen</td><td>Wisselschakelaars aan de uiteinden, kruisschakelaars ertussen</td></tr>
+    <tr><td><b>Teleruptor</b></td><td>Veel bedieningsplaatsen, bv. een lange gang</td><td>Drukknoppen sturen een relais in het bord aan; elke druk wisselt aan/uit</td></tr>
+    <tr><td><b>Dimmer</b></td><td>Lichtsterkte regelen</td><td>Controleer of de dimmer bij je ledlampen past (fase-afsnijding of -aansnijding)</td></tr>
+  </table></div>
+
+  <p>In <a href="#m3">module 03</a> werk je elk van deze schakelingen uit, met klikbare schema's.</p>
+
+  <h3>Stopcontacten (contactdozen)</h3>
+  <ul class="tight">
+    <li>In België gebruik je het type met <b>aardingspen</b> (penaarde): de pen steekt uit het stopcontact en raakt de aardingsopening van de stekker.</li>
+    <li><b>Kinderbeveiliging:</b> sluitertjes in de openingen die enkel opengaan als beide polen tegelijk worden ingedrukt. Verplicht in woningen.</li>
+    <li><b>Inbouwdoos:</b> de ronde doos in de muur waarin het stopcontact of de schakelaar vastzit. Alle verbindingen zitten in een doos, nooit los in de muur.</li>
+    <li><b>Verbindingsklemmen:</b> draden verbind je met schroef- of steekklemmen (zoals Wago), niet door ze in elkaar te draaien met isolatietape errond.</li>
+  </ul>
+
+  <h3>Beschermingsgraad: de IP-code</h3>
+  <p>De IP-code op materiaal zegt hoe goed het beschermd is tegen binnendringen. Het eerste cijfer gaat over vaste voorwerpen en stof, het tweede over water. Een X betekent "niet getest voor dit deel".</p>
+  <div class="tbl"><table>
+    <tr><th>Code</th><th>Betekenis</th><th>Voorbeeld</th></tr>
+    <tr><td class="num">IP20</td><td>Vingers kunnen er niet in, geen waterbescherming</td><td>Gewoon stopcontact in de living</td></tr>
+    <tr><td class="num">IPX4</td><td>Bestand tegen opspattend water uit alle richtingen</td><td>Lamp in badkamer volume 1</td></tr>
+    <tr><td class="num">IP44</td><td>Kleine voorwerpen (≥1 mm) + opspattend water</td><td>Buitenstopcontact met klapdeksel</td></tr>
+    <tr><td class="num">IPX5</td><td>Bestand tegen waterstralen</td><td>Materiaal in een douche met straal</td></tr>
+    <tr><td class="num">IPX7</td><td>Tijdelijk onderdompelen</td><td>Verlichting in een bad (volume 0)</td></tr>
+  </table></div>
+
+  <h3>Toestelklassen en zeer lage spanning</h3>
+  <div class="tbl"><table>
+    <tr><th>Klasse</th><th>Bescherming</th><th>Herkennen</th></tr>
+    <tr><td><b>Klasse I</b></td><td>Metalen behuizing verbonden met de aarding</td><td>Stekker met aardingsopening, bv. wasmachine, oven</td></tr>
+    <tr><td><b>Klasse II</b></td><td>Dubbel geïsoleerd, geen aarding nodig</td><td>Symbool van twee vierkantjes in elkaar, platte stekker</td></tr>
+    <tr><td><b>Klasse III</b></td><td>Werkt op zeer lage spanning</td><td>Via transformator of adapter, bv. 12 V ledstrip</td></tr>
+  </table></div>
+  <p><b>ZLVS</b> (zeer lage veiligheidsspanning, internationaal SELV) is een spanning van maximaal 50 V wisselspanning of 120 V gelijkspanning, gevoed via een veiligheidstransformator en volledig gescheiden van het net. In de badkamer gelden nog lagere grenzen.</p>
+  <div class="quiz"></div>
+</section>
+
+<!-- NEW 3 -->
+<section class="mod" data-name="Schakelingen">
+  <div class="modhead"><span class="num">MODULE</span><h2>Schakelingen</h2>
+  <p class="goals"><b>Je leert:</b> hoe de gangbare lichtschakelingen werken, hoeveel draden je tussen de punten nodig hebt en welke schakeling je waar kiest.</p></div>
+  <p>Elke schakeling hieronder is een werkend schema. <b>Klik op een schakelaar of drukknop</b> (of gebruik Tab en Enter) en kijk welke draden onder spanning komen. Bruin betekent onder spanning, grijs spanningsloos.</p>
+  <div class="rule"><span class="tag">Regel · voor alle schakelingen</span>
+    <p>De schakelaar onderbreekt altijd de <b>fase</b>. De nul en de beschermingsgeleider gaan rechtstreeks naar de lamp, zonder via de schakelaar te passeren. Blauw en geel-groen gebruik je nooit als schakeldraad.</p>
+  </div>
+  <div class="tip"><span class="tag">Gebruikelijke kleuren</span>
+    <p>Het AREI legt enkel blauw (nul) en geel-groen (aarde) vast. In de praktijk gebruiken veel installateurs bruin voor de fase, zwart voor de geschakelde draad naar de lamp en grijs voor de wisseldraden. Kies één systeem en hou het overal vol: wie later je dozen opent, zal je dankbaar zijn.</p>
+  </div>
+
+  <h3>1. Enkelvoudige schakeling</h3>
+  <p>Eén lamp (of groep lampen), één bedieningsplaats. De basis van alles.</p>
+  <div class="sim" data-sim="enkel"></div>
+  <div class="tbl"><table>
+    <tr><th>Tussen</th><th>Draden</th></tr>
+    <tr><td>Schakelaar en lamp</td><td>1 geschakelde fase (de "retour")</td></tr>
+    <tr><td>Voeding en schakelaar</td><td>1 fase</td></tr>
+    <tr><td>Voeding en lamp</td><td>nul + aarde</td></tr>
+  </table></div>
+
+  <h3>2. Dubbele schakeling (serieschakelaar)</h3>
+  <p>Twee lampen of groepen, apart te bedienen vanaf één plaats. Denk aan een plafondlamp en spots in de living. Het is één schakelaar met twee wippen onder één plaat. De fase komt één keer binnen en wordt intern naar beide wippen gevoerd.</p>
+  <div class="sim" data-sim="dubbel"></div>
+  <div class="tbl"><table>
+    <tr><th>Tussen</th><th>Draden</th></tr>
+    <tr><td>Voeding en schakelaar</td><td>1 fase</td></tr>
+    <tr><td>Schakelaar en lampen</td><td>2 geschakelde fases (één per lamp)</td></tr>
+  </table></div>
+
+  <h3>3. Hotelschakeling (wisselschakeling)</h3>
+  <p>Eén lamp, twee bedieningsplaatsen: boven en onder aan de trap, of aan beide deuren van een lange kamer. In Vlaanderen heet dat een hotelschakeling, de schakelaars heten wisselschakelaars of hotelschakelaars.</p>
+  <p>Een wisselschakelaar heeft drie klemmen: één <b>gemeenschappelijke</b> (vaak gemerkt met L of een pijltje) en twee <b>wisselcontacten</b>. De gemeenschappelijke klem maakt altijd contact met één van de twee. Tussen de twee schakelaars lopen twee <b>wisseldraden</b>. De lamp brandt als beide schakelaars "dezelfde" wisseldraad kiezen.</p>
+  <div class="sim" data-sim="hotel"></div>
+  <div class="tbl"><table>
+    <tr><th>Tussen</th><th>Draden</th></tr>
+    <tr><td>Voeding en wisselschakelaar 1</td><td>1 fase, op de gemeenschappelijke klem</td></tr>
+    <tr><td>Wisselschakelaar 1 en 2</td><td>2 wisseldraden</td></tr>
+    <tr><td>Wisselschakelaar 2 en lamp</td><td>1 geschakelde fase, van de gemeenschappelijke klem</td></tr>
+  </table></div>
+  <div class="danger"><span class="tag">Klassieke fout</span>
+    <p>De fase op een wisselcontact aansluiten in plaats van op de gemeenschappelijke klem. De schakeling werkt dan "soms": in bepaalde standen van de ene schakelaar doet de andere niets meer. Kijk op de achterkant welke klem de gemeenschappelijke is.</p>
+  </div>
+
+  <h3>4. Kruisschakeling</h3>
+  <p>Drie of meer bedieningsplaatsen, bijvoorbeeld een gang met drie deuren. Aan de twee uiteinden staat een wisselschakelaar, daartussen één of meer <b>kruisschakelaars</b>. Een kruisschakelaar heeft vier klemmen: twee wisseldraden in, twee uit. In de ene stand gaan ze recht door, in de andere wisselt hij ze om.</p>
+  <div class="sim" data-sim="kruis"></div>
+  <div class="tip"><span class="tag">Wanneer niet meer</span>
+    <p>Vanaf vier bedieningsplaatsen wordt een kruisschakeling een kluwen van wisseldraden. Kies dan een teleruptor.</p>
+  </div>
+
+  <h3>5. Teleruptor</h3>
+  <p>Een teleruptor is een relais in het bord dat bij elke puls omklapt: aan, uit, aan. Je bedient hem met <b>drukknoppen</b> (die veren terug), en je mag er zoveel parallel op zetten als je wil. Zo vervang je een ingewikkelde kruisschakeling door één simpele stuurdraad die langs alle drukknoppen loopt.</p>
+  <div class="sim" data-sim="tele"></div>
+  <ul class="tight">
+    <li>De spoel van de teleruptor wordt gestuurd op 230 V, of op zeer lage spanning (8, 12 of 24 V) via een beltransformator. Een lage stuurspanning is handig als je later wil automatiseren.</li>
+    <li>Het vermogenscontact van de teleruptor zit in het bord en schakelt de fase naar de lampen.</li>
+    <li>Op het eendraadschema teken je de teleruptor met zijn drukknoppen en de lampen die hij schakelt.</li>
+  </ul>
+
+  <h3>6. Trappenhuisautomaat (minuterie)</h3>
+  <p>Hetzelfde principe als een teleruptor, maar de lamp gaat na een ingestelde tijd vanzelf uit. Typisch voor een gemeenschappelijke trappenhal, een kelder of een garage. Elke druk start de tijd opnieuw. In deze demo staat hij op 6 seconden.</p>
+  <div class="sim" data-sim="minu"></div>
+
+  <h3>Schakelaars echt aansluiten: L, 1, 1'</h3>
+  <p>Op de achterkant van een schakelaar staan letters en cijfers bij de klemmen. Die vertellen welke draad waar komt. De afspraak is bij de meeste merken dezelfde:</p>
+  <ul class="tight">
+    <li><b>L</b> (soms <b>P</b> of een pijltje): hier komt de <b>fase</b> binnen, of bij de tweede wisselschakelaar de draad die naar de lamp gaat. Dit is de gemeenschappelijke klem.</li>
+    <li><b>1</b>, <b>2</b>: uitgangen. Bij een serieschakelaar is 1 de eerste wip en 2 de tweede.</li>
+    <li><b>1'</b> (spreek uit: "één accent"): het tweede contact van dezelfde wip. Een wisselschakelaar heeft 1 én 1'; daar komen de twee wisseldraden.</li>
+    <li><b>L1, L2</b>: bij een dubbele schakelaar (twee schakelaars onder één plaat) hoort L1 bij de eerste en L2 bij de tweede. Zo krijg je bij een dubbele wisselschakelaar L1, 1, 1' en L2, 2, 2'.</li>
+  </ul>
+  <p>Kies hieronder een schakelaar en zie de achterkant met de draden erop.</p>
+  <div class="klem" id="klem">
+    <div class="klem-tabs" role="tablist" aria-label="Soort schakelaar"></div>
+    <div class="klem-view"></div>
+  </div>
+  <div class="tip"><span class="tag">Werkwijze</span>
+    <ul class="tight">
+      <li>Kijk altijd eerst naar het tekeningetje op de achterkant; bij een twijfelgeval volgt het dat, niet deze tabel.</li>
+      <li>Strip de draad op de lengte die op de schakelaar staat (vaak een stripmaat van 8 à 10 mm). Er mag geen blank koper naast de klem uitsteken.</li>
+      <li>Bij steekklemmen: draad recht en tot de aanslag insteken, dan even trekken om te controleren. Losmaken gaat met het ontgrendelknopje of een kleine schroevendraaier in de opening ernaast.</li>
+      <li>Geen dubbele draad in een klem, tenzij de klem daarvoor gemaakt is (bij veel stopcontacten zijn er dubbele klemmen om door te lussen).</li>
+      <li>Markeer bij een serieschakelaar of een dubbele wissel welke zwarte draad bij welke lamp hoort, met een stukje tape of een merkring.</li>
+    </ul>
+  </div>
+
+  <h3>Andere bedieningen</h3>
+  <div class="tbl"><table>
+    <tr><th>Bediening</th><th>Werking</th><th>Let op</th></tr>
+    <tr><td><b>Bewegingsmelder</b></td><td>Schakelt de fase naar de lamp zolang er beweging is, vaak ook afhankelijk van het daglicht</td><td>De meeste melders hebben ook de nul nodig voor hun eigen elektronica. Buiten: IP44 of beter.</td></tr>
+    <tr><td><b>Dimmer</b></td><td>Regelt de lichtsterkte in plaats van enkel aan/uit</td><td>Kies een dimmer die past bij je ledlampen en lampen die als dimbaar verkocht worden. Respecteer het minimum- en maximumvermogen.</td></tr>
+    <tr><td><b>Geschakeld stopcontact</b></td><td>Een schakelaar aan de deur bedient een stopcontact, bv. voor een staande lamp</td><td>De kring is dan een stopcontactkring: 2,5 mm² tot en met de schakelaar, en een schakelaar geschikt voor 16 A.</td></tr>
+    <tr><td><b>Slimme module</b></td><td>Relais in de doos achter een drukknop of schakelaar, bediend via app of domotica</td><td>Zie module 13. Past alleen als de doos diep genoeg is en de nul aanwezig is.</td></tr>
+  </table></div>
+  <div class="tip"><span class="tag">Plan vooruit</span>
+    <p>Trek bij het bekabelen de nul ook naar elke schakelaardoos, ook al heb je hem vandaag niet nodig. Bewegingsmelders, verlichte schakelaars en slimme modules vragen er bijna allemaal om. Een extra draad nu kost bijna niets; achteraf moet je slijpen.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 4 -->
+<section class="mod" data-name="Stroombanen">
+  <div class="modhead"><span class="num">MODULE</span><h2>Stroombanen (kringen)</h2>
+  <p class="goals"><b>Je leert:</b> welke sectie bij welke beveiliging hoort, hoeveel punten op een kring mogen en welke toestellen een eigen kring krijgen.</p></div>
+  <p class="goals">Termen als automaat, punt of tweepolige schakelaar zijn nieuw voor je? Lees eerst <a href="#m2">module 02</a>.</p>
+  <p>Een stroombaan of kring is alles wat achter één automaat hangt. De automaat beschermt <b>de kabel</b>, niet het toestel: hij moet uitschakelen voordat de draad te warm wordt. Daarom hangt de maximale beveiliging af van de sectie.</p>
+  <div class="tbl"><table>
+    <tr><th>Sectie koper</th><th>Max. automaat</th><th>Max. smeltzekering</th><th>Typisch gebruik</th></tr>
+    <tr><td class="num">1,5 mm²</td><td class="num">16 A</td><td class="num">10 A</td><td>Verlichting</td></tr>
+    <tr><td class="num">2,5 mm²</td><td class="num">20 A</td><td class="num">16 A</td><td>Stopcontacten, gemengde kring, wasmachine</td></tr>
+    <tr><td class="num">4 mm²</td><td class="num">25 A</td><td class="num">20 A</td><td>Zwaardere toestellen, voeding tuinhuis</td></tr>
+    <tr><td class="num">6 mm²</td><td class="num">32 A</td><td class="num">25 A</td><td>Kookplaat, laadpaal (afhankelijk van lengte)</td></tr>
+    <tr><td class="num">10 mm²</td><td class="num">40 A</td><td class="num">32 A</td><td>Voeding onderverdeelbord</td></tr>
+  </table></div>
+  <p style="font-size:.88rem;color:var(--muted)">Dit zijn de gangbare waarden voor huishoudelijke installaties bij normale plaatsingswijze. Lange lijnen (spanningsval) of kabels in isolatie of gebundeld kunnen een grotere sectie vragen.</p>
+  <div class="rule"><span class="tag">Regel · contactdozen</span>
+    <p>Maximaal <b>8 punten</b> met contactdozen per kring. Een meervoudig stopcontact onder één afdekplaat telt als één punt. Stopcontacten in een woning hebben een aardingspen en kinderbeveiliging.</p>
+  </div>
+  <div class="rule"><span class="tag">Regel · gemengde kring</span>
+    <p>Licht en stopcontacten samen op één kring mag, maar dan is de hele kring in <b>2,5 mm²</b>, met maximaal 8 punten samen. Beveiliging: 16 A, of 20 A als alle schakelaars tweepolig zijn en voor 16 A geschikt.</p>
+  </div>
+  <div class="rule"><span class="tag">Regel · toegewezen kringen</span>
+    <p>Wasmachine, vaatwasser, droogkast, elektrische oven en kookplaat krijgen elk een eigen kring. Dat geldt ook voor zware vaste verbruikers zoals een laadpaal, warmtepomp of elektrische boiler.</p>
+  </div>
+  <div class="tip"><span class="tag">Praktijk</span>
+    <p>Maak een kring per kamer of zone, niet per verdieping. Als er een automaat uitvalt, zit dan niet het halve huis in het donker. Plan in de keuken minstens twee stopcontactkringen voor het aanrecht.</p>
+  </div>
+  <h3>Kringcontrole</h3>
+  <p>Stel een kring samen en zie meteen of hij de AREI-regels uit deze module haalt.</p>
+  <div class="tool" id="checker">
+    <div class="fields">
+      <label for="kType">Soort kring
+        <select id="kType">
+          <option value="licht">Verlichting</option>
+          <option value="stop" selected>Stopcontacten</option>
+          <option value="gemengd">Gemengd (licht + stopcontacten)</option>
+          <option value="toegewezen">Toegewezen toestel</option>
+        </select></label>
+      <label for="kSec">Sectie
+        <select id="kSec"><option value="1.5">1,5 mm²</option><option value="2.5" selected>2,5 mm²</option><option value="4">4 mm²</option><option value="6">6 mm²</option><option value="10">10 mm²</option></select></label>
+      <label for="kAut">Automaat
+        <select id="kAut"><option>10</option><option>16</option><option selected>20</option><option>25</option><option>32</option><option>40</option></select></label>
+      <label for="kPts">Aantal punten (stopcontactplaten + lichtpunten)
+        <input id="kPts" type="number" min="1" max="30" value="7"></label>
+      <label class="check" for="kDp"><input id="kDp" type="checkbox"> Alle schakelaars tweepolig, 16 A</label>
+      <label class="check" for="kDiff"><input id="kDiff" type="checkbox" checked> Achter een differentieel van 30 mA</label>
+    </div>
+    <div class="verdict" aria-live="polite"><span class="stamp" id="kStamp"></span><ul id="kList"></ul></div>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 5 -->
+<section class="mod" data-name="Differentiëlen">
+  <div class="modhead"><span class="num">MODULE</span><h2>Differentieelschakelaars</h2>
+  <p class="goals"><b>Je leert:</b> het verschil tussen 300 mA en 30 mA, welk type je nodig hebt en hoe je het bord opbouwt.</p></div>
+  <p>Een automaat meet <b>hoeveel</b> stroom er loopt. Een differentieel meet of de stroom die via de fase vertrekt ook via de nul terugkomt. Is er een verschil, dan lekt er stroom weg, misschien door iemand heen. Vanaf de ingestelde waarde schakelt hij af.</p>
+  <div class="rule"><span class="tag">Regel · opbouw sinds 1 juni 2023</span>
+    <ul class="tight">
+      <li>Aan het begin van de installatie: een <b>hoofddifferentieel van max. 300 mA</b>, type A.</li>
+      <li>Alle kringen met <b>verlichting en stopcontacten</b>: achter een differentieel van <b>max. 30 mA</b>, type A.</li>
+      <li>Maximaal <b>8 eindstroombanen</b> per differentieel van 30 mA.</li>
+      <li>Vaste toestellen zonder stopcontact (inbouwkookplaat, oven, rolluiken) mogen direct achter de 300 mA.</li>
+      <li>In huishoudelijke installaties is type <b>A</b> vereist; type AC plaats je niet meer.</li>
+    </ul>
+  </div>
+  <figure>
+    <svg viewBox="0 0 660 300" width="100%" role="img" aria-label="Opbouw van een verdeelbord: meter, hoofddifferentieel 300 mA, twee differentiëlen van 30 mA met elk hun kringen, vaste toestellen direct achter 300 mA">
+      <g font-size="13">
+        <rect x="10" y="125" width="90" height="46" rx="4" style="fill:var(--sunk);stroke:var(--line)"/>
+        <text x="55" y="145" text-anchor="middle" style="fill:var(--ink)" font-weight="600">Meter</text>
+        <text x="55" y="162" text-anchor="middle" style="fill:var(--muted)" font-size="11">netbeheerder</text>
+        <line x1="100" y1="148" x2="140" y2="148" style="stroke:var(--ink)" stroke-width="2"/>
+        <rect x="140" y="118" width="110" height="60" rx="4" style="fill:var(--phase-soft);stroke:var(--phase)" stroke-width="2"/>
+        <text x="195" y="142" text-anchor="middle" style="fill:var(--ink)" font-weight="600">Hoofddiff</text>
+        <text x="195" y="160" text-anchor="middle" style="fill:var(--ink)" font-family="IBM Plex Mono,monospace" font-size="12">300 mA · A</text>
+        <line x1="250" y1="148" x2="290" y2="148" style="stroke:var(--ink)" stroke-width="2"/>
+        <line x1="290" y1="40" x2="290" y2="265" style="stroke:var(--ink)" stroke-width="2"/>
+        <line x1="290" y1="40" x2="320" y2="40" style="stroke:var(--ink)" stroke-width="2"/>
+        <line x1="290" y1="130" x2="320" y2="130" style="stroke:var(--ink)" stroke-width="2"/>
+        <line x1="290" y1="220" x2="320" y2="220" style="stroke:var(--ink)" stroke-width="2"/>
+        <line x1="290" y1="265" x2="320" y2="265" style="stroke:var(--ink)" stroke-width="2"/>
+        <rect x="320" y="18" width="100" height="44" rx="4" style="fill:var(--neutral-soft);stroke:var(--neutral)" stroke-width="2"/>
+        <text x="370" y="37" text-anchor="middle" style="fill:var(--ink)" font-weight="600">Diff 1</text>
+        <text x="370" y="53" text-anchor="middle" style="fill:var(--ink)" font-family="IBM Plex Mono,monospace" font-size="12">30 mA · A</text>
+        <rect x="320" y="108" width="100" height="44" rx="4" style="fill:var(--neutral-soft);stroke:var(--neutral)" stroke-width="2"/>
+        <text x="370" y="127" text-anchor="middle" style="fill:var(--ink)" font-weight="600">Diff 2</text>
+        <text x="370" y="143" text-anchor="middle" style="fill:var(--ink)" font-family="IBM Plex Mono,monospace" font-size="12">30 mA · A</text>
+        <line x1="420" y1="40" x2="445" y2="40" style="stroke:var(--ink)" stroke-width="2"/>
+        <line x1="420" y1="130" x2="445" y2="130" style="stroke:var(--ink)" stroke-width="2"/>
+        <text x="450" y="36" style="fill:var(--ink)">max. 8 kringen</text>
+        <text x="450" y="52" style="fill:var(--muted)" font-size="11">licht + stopcontacten gelijkvloers</text>
+        <text x="450" y="126" style="fill:var(--ink)">max. 8 kringen</text>
+        <text x="450" y="142" style="fill:var(--muted)" font-size="11">verdieping, badkamer, wasplaats</text>
+        <rect x="320" y="202" width="330" height="36" rx="4" style="fill:var(--surface);stroke:var(--line)"/>
+        <text x="332" y="225" style="fill:var(--ink)">Vaste toestellen: kookplaat, oven, rolluiken</text>
+        <rect x="320" y="248" width="330" height="36" rx="4" style="fill:var(--surface);stroke:var(--phase)" stroke-dasharray="5 4"/>
+        <text x="332" y="271" style="fill:var(--ink)">Laadpaal: eigen kring, 30 mA + DC-detectie</text>
+      </g>
+    </svg>
+    <figcaption>Vereenvoudigd principe van een eenfasig bord. Verdeel je kringen over minstens twee differentiëlen van 30 mA, dan blijft bij een lekfout een deel van het huis werken.</figcaption>
+  </figure>
+  <div class="why"><span class="tag">Waarom 30 mA</span>
+    <p>Een lekstroom van enkele tientallen milliampère door het lichaam kan het hart uit zijn ritme brengen. 30 mA schakelt af voordat dat gebeurt. 300 mA is vooral een brandbeveiliging: een lekstroom van die grootte in een vochtige muur kan genoeg warmte geven om brand te veroorzaken.</p>
+  </div>
+  <div class="tip"><span class="tag">Onderhoud</span>
+    <p>Druk elke maand op de testknop (T) van elke differentieel. Hij moet meteen uitschakelen. Doet hij dat niet, laat hem vervangen.</p>
+  </div>
+  <div class="tip"><span class="tag">Oudere installatie?</span>
+    <p>Installaties die conform waren onder de regels van hun aanlegdatum, blijven dat. De nieuwe regels gelden voor wat je nieuw aanlegt of grondig wijzigt. Voeg je een kring toe, dan moet die wel aan de huidige eisen voldoen.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 6 -->
+<section class="mod" data-name="Aarding">
+  <div class="modhead"><span class="num">MODULE</span><h2>Aarding en equipotentiaal</h2>
+  <p class="goals"><b>Je leert:</b> hoe de aarding werkt, welke waarde ze moet halen en wat je aan de aarding verbindt.</p></div>
+  <p>In België werken woningen met een TT-net: de netbeheerder aardt zijn nul, jij zorgt voor je eigen aarding. Elke metalen behuizing (klasse I-toestel) is via de geel-groene draad verbonden met de aarding. Bij een isolatiefout vloeit de stroom naar de aarde en schakelt de differentieel af.</p>
+  <div class="rule"><span class="tag">Regel · spreidingsweerstand</span>
+    <p>De aardingsweerstand van een woning is bij voorkeur <b>≤ 30 Ω</b>. Tot <b>100 Ω</b> kan worden aanvaard als er bijkomende beschermingsmaatregelen met differentiëlen van 30 mA zijn. Daarboven moet de aarding verbeterd worden.</p>
+  </div>
+  <h3>Onderdelen van de aarding</h3>
+  <ul class="tight">
+    <li><b>Aardelektrode:</b> bij nieuwbouw een aardlus in de funderingssleuf (blanke koperdraad, onder het gebouw rondgelegd). Bij renovatie aardpennen.</li>
+    <li><b>Meetklem:</b> een scheidbare verbinding tussen aardelektrode en hoofdaardklem, zodat de keurder kan meten.</li>
+    <li><b>Hoofdaardingsgeleider:</b> van meetklem naar de aardrail in je bord.</li>
+    <li><b>Hoofdequipotentiaalverbindingen:</b> leidingen voor water, gas en verwarming en metalen bouwdelen worden aan de hoofdaardklem gekoppeld, vlak waar ze het gebouw binnenkomen.</li>
+    <li><b>Bijkomende equipotentiaalverbindingen:</b> in ruimten met bad of douche, volgens hoofdstuk 7.1 (zie module 07).</li>
+  </ul>
+  <div class="why"><span class="tag">Waarom equipotentiaal</span>
+    <p>Gevaar ontstaat als je twee dingen aanraakt met een verschillende spanning, bijvoorbeeld een defecte wasmachine en een waterkraan. Als alle metalen delen met elkaar verbonden zijn, is er geen spanningsverschil en loopt er dus geen stroom door jou.</p>
+  </div>
+  <div class="tip"><span class="tag">Praktijk</span>
+    <p>Laat bij nieuwbouw de aardlus leggen vóór de fundering gestort wordt. Achteraf kan dat niet meer en ben je aangewezen op pennen, die in droge zandgrond (zoals in de Kempen) soms moeilijk onder de 30 Ω komen.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 7 -->
+<section class="mod" data-name="Badkamer">
+  <div class="modhead"><span class="num">MODULE</span><h2>Badkamer en douche</h2>
+  <p class="goals"><b>Je leert:</b> de volumes volgens het herschreven hoofdstuk 7.1 (van kracht sinds 1 maart 2025) en wat je waar mag plaatsen.</p></div>
+  <p>Hoofdstuk 7.1 werd volledig herschreven en afgestemd op de internationale norm IEC 60364-7-701. De grootste veranderingen: volume 1bis en volume 3 bestaan niet meer. Een badkamer kent nog volume 0, 1 en 2; een aparte douche enkel volume 0 en 1. De rest van de ruimte heet gewoon "de ruimte" en wordt afgebakend door vloer, plafond (of max. 3 m hoogte) en wanden.</p>
+  <figure>
+    <svg viewBox="0 0 560 270" width="100%" role="img" aria-label="Zijaanzicht badkamer met volume 0 in het bad, volume 1 erboven tot 2,25 m, volume 2 tot 0,60 m ernaast">
+      <g font-size="12">
+        <rect x="100" y="30" width="170" height="200" style="fill:var(--neutral-soft);stroke:var(--neutral)" stroke-dasharray="4 3"/>
+        <rect x="270" y="30" width="100" height="200" style="fill:var(--phase-soft);stroke:var(--phase)" stroke-dasharray="4 3"/>
+        <rect x="100" y="180" width="170" height="50" style="fill:var(--neutral);opacity:.45"/>
+        <path d="M100 180 L100 230 L270 230 L270 180" fill="none" style="stroke:var(--ink)" stroke-width="3"/>
+        <line x1="40" y1="230" x2="530" y2="230" style="stroke:var(--ink)" stroke-width="2"/>
+        <line x1="96" y1="30" x2="96" y2="230" style="stroke:var(--ink)" stroke-width="3"/>
+        <text x="185" y="212" text-anchor="middle" style="fill:var(--ink)" font-weight="600">Volume 0</text>
+        <text x="185" y="110" text-anchor="middle" style="fill:var(--ink)" font-weight="600">Volume 1</text>
+        <text x="185" y="126" text-anchor="middle" style="fill:var(--muted)">boven het bad, ook eronder</text>
+        <text x="320" y="110" text-anchor="middle" style="fill:var(--ink)" font-weight="600">Volume 2</text>
+        <text x="320" y="126" text-anchor="middle" style="fill:var(--muted)">0,60 m breed</text>
+        <text x="455" y="110" text-anchor="middle" style="fill:var(--ink)" font-weight="600">Ruimte</text>
+        <text x="455" y="126" text-anchor="middle" style="fill:var(--muted)">rest van de badkamer</text>
+        <line x1="60" y1="30" x2="60" y2="230" style="stroke:var(--muted)"/>
+        <line x1="54" y1="30" x2="66" y2="30" style="stroke:var(--muted)"/>
+        <text x="54" y="134" text-anchor="end" style="fill:var(--muted)" font-family="IBM Plex Mono,monospace">2,25 m</text>
+        <line x1="270" y1="250" x2="370" y2="250" style="stroke:var(--muted)"/>
+        <line x1="270" y1="244" x2="270" y2="256" style="stroke:var(--muted)"/><line x1="370" y1="244" x2="370" y2="256" style="stroke:var(--muted)"/>
+        <text x="320" y="266" text-anchor="middle" style="fill:var(--muted)" font-family="IBM Plex Mono,monospace">0,60 m</text>
+      </g>
+    </svg>
+    <figcaption>Principe voor een bad tegen een muur. De exacte grenzen hangen af van het hoogste betreedbare niveau en de vaste watertoevoer; bij een inloopdouche zonder bak gelden aangepaste afmetingen. Controleer je eigen situatie in hoofdstuk 7.1.</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>Volume</th><th>Wat mag</th><th>Wat mag niet</th></tr>
+    <tr><td class="num">0</td><td>Enkel materieel op zeer lage veiligheidsspanning (ZLVS/SELV, max. 12 V AC) en specifiek voor dat volume, IPX7</td><td>Contactdozen, schakelaars, 230 V-toestellen</td></tr>
+    <tr><td class="num">1</td><td>Vast opgestelde toestellen die daarvoor bedoeld zijn (verlichting, ventilator, boiler) met minstens IPX4, IPX5 waar straalwater kan</td><td>Contactdozen, gewone schakelaars</td></tr>
+    <tr><td class="num">2</td><td>Verlichting, verwarming, ventilatie met aangepaste IP-graad; contactdozen enkel onder strikte voorwaarden</td><td>Materieel zonder voldoende IP-bescherming</td></tr>
+    <tr><td class="num">Ruimte</td><td>Contactdozen en schakelaars (met aardingspen en kinderbeveiliging)</td><td>—</td></tr>
+  </table></div>
+  <div class="rule"><span class="tag">Regel</span>
+    <p>Alle kringen in een ruimte met bad of douche zitten achter een differentieel van <b>max. 30 mA</b>. Een aparte "badkamerdifferentieel" is niet meer nodig: sinds 2023 hangen verlichting en stopcontacten sowieso achter 30 mA.</p>
+  </div>
+  <div class="tip"><span class="tag">Praktijk</span>
+    <p>Twijfel je over een stopcontact in volume 2? Zet het net daarbuiten, in de ruimte. Dat is altijd goed, en de keurder hoeft er niet over te discussiëren.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- NEW PLAN -->
+<section class="mod" data-name="Kringplanner">
+  <div class="modhead"><span class="num">MODULE</span><h2>Kringplanner</h2>
+  <p class="goals"><b>Je leert:</b> alle regels tot nu toe samen toepassen op je eigen woning, van kamers tot een eerste bordindeling.</p></div>
+  <p>Vul je kamers in met het aantal lichtpunten en stopcontactpunten (afdekplaten), en vink de toestellen aan die een eigen kring krijgen. De planner stelt kringen voor en verdeelt ze over de differentiëlen. Er staat een voorbeeldwoning in; pas die aan naar je eigen huis.</p>
+  <div class="planner" id="planner">
+    <div class="pl-rooms">
+      <div class="tbl"><table class="pl-table">
+        <thead><tr><th>Ruimte</th><th>Soort</th><th>Niveau</th><th>Lichtpunten</th><th>Stopcontact&shy;punten</th><th><span class="sr">Verwijderen</span></th></tr></thead>
+        <tbody id="plRows"></tbody>
+      </table></div>
+      <button type="button" class="addbtn" id="plAdd">Ruimte toevoegen</button>
+    </div>
+    <fieldset class="pl-dev"><legend>Toestellen met een eigen kring</legend><div id="plDev"></div></fieldset>
+    <div id="plOut" aria-live="polite"></div>
+  </div>
+  <div class="why"><span class="tag">Hoe de planner rekent</span>
+    <ul class="tight">
+      <li>Verlichting per niveau, 1,5 mm² met automaat van 16 A, max. 10 lichtpunten per kring. Dat laatste is geen AREI-grens maar een praktische keuze.</li>
+      <li>Stopcontacten per niveau, 2,5 mm² met 20 A, max. 8 punten per kring. De keuken krijgt minstens twee eigen stopcontactkringen en de badkamer een eigen kring.</li>
+      <li>Buiten wordt een aparte gemengde kring in 2,5 mm² met 16 A.</li>
+      <li>Alles met stopcontacten of verlichting komt achter een differentieel van 30 mA, max. 8 per differentieel, met minstens twee differentiëlen. De verlichtingskringen worden gespreid, zodat er bij een uitval nog licht is.</li>
+      <li>Vast aangesloten toestellen (kookplaat, oven, boiler, warmtepomp, omvormer) komen direct achter de hoofddifferentieel van 300 mA. De laadpaal krijgt een eigen differentieel met DC-detectie.</li>
+      <li>De planner gaat uit van een eenfasige aansluiting en gangbare secties bij korte afstanden.</li>
+    </ul>
+  </div>
+  <div class="tip"><span class="tag">Het is een voorstel</span>
+    <p>Gebruik de uitkomst als startpunt voor je eendraadschema en als gespreksbasis met je installateur of keurder. Lange kabels, driefasige toestellen of speciale eisen van een fabrikant kunnen een andere sectie of beveiliging vragen.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- NEW SYMB -->
+<section class="mod" data-name="Symbolen & eendraadschema">
+  <div class="modhead"><span class="num">MODULE</span><h2>Symbolen en eendraadschema</h2>
+  <p class="goals"><b>Je leert:</b> de symbolen voor de punten in je woning lezen en herkennen, en hoe je één kring op een eendraadschema zet.</p></div>
+  <p>Het eendraadschema toont je installatie als één lijn per kring. Je tekent niet elke draad, maar enkel <b>wat</b> er op de kring zit en <b>in welke volgorde</b>. De symbolen staan in AREI Boek 1 (afdeling 2.13, tabel 2.23) en zijn gebaseerd op de internationale norm IEC 60617.</p>
+  <div class="tip"><span class="tag">Over de tekeningen</span>
+    <p>De symbolen hieronder zijn nagetekend volgens tabel 2.23 van het AREI (afdeling 2.13), lijnvoering vereenvoudigd om ze te leren herkennen. Voor je definitieve schema neem je de officiële symbolentabel van het AREI (FOD Economie) of een tekenprogramma dat ermee werkt, zoals eendraadschema.app.</p>
+  </div>
+
+  <h3>De belangrijkste symbolen</h3>
+  <div class="symgrid" id="symgrid"></div>
+  <p style="font-size:.88rem;color:var(--muted)">Het patroon bij schakelaars: een cirkeltje met een schuine lijn. Een kale lijn is enkelpolig; drie korte dwarsstreepjes erop staan voor twee- of driepolig. Een lijn die aan beide kanten van het cirkeltje doorloopt, elk uiteinde met een klein haakje, is een wisselschakelaar; vier van die armen samen in een kruis is een kruisschakelaar. Een lichtpunt is geen cirkel met een kruis, maar gewoon een lijn die eindigt op een kruis.</p>
+
+  <h3>Oefen: welk symbool is dit?</h3>
+  <div class="flash" id="flash"></div>
+
+  <h3>Wat staat er per kring op het schema</h3>
+  <div class="tbl"><table>
+    <tr><th>Gegeven</th><th>Voorbeeld</th></tr>
+    <tr><td>Kringletter</td><td class="num">A</td></tr>
+    <tr><td>Beveiliging: automaat (kaliber en curve)</td><td class="num">C20</td></tr>
+    <tr><td>Differentieel erboven (gevoeligheid, type)</td><td class="num">30 mA · A</td></tr>
+    <tr><td>Kabeltype en sectie</td><td class="num">XVB 3G2,5 of VOB 2,5 in buis</td></tr>
+    <tr><td>Plaatsingswijze</td><td>ingewerkt, opbouw, in de grond</td></tr>
+    <tr><td>Punten in volgorde, met nummer</td><td class="num">A1, A2, A3…</td></tr>
+  </table></div>
+
+  <h3>Voorbeeld: kring A, de living</h3>
+  <p>Twee dubbele stopcontacten, één enkel stopcontact en een lichtpunt met een schakelaar, in de volgorde waarin de kabel ze bereikt.</p>
+  <figure>
+    <svg id="exschema" viewBox="0 0 560 430" width="100%" role="img" aria-label="Voorbeeld eendraadschema van kring A"></svg>
+    <figcaption>De beveiligingen zijn hier als benoemde blokjes getekend. In deze cursus loopt elke kring als een verticale lijn; andere tekenaars leggen ze horizontaal. Wat telt, is dat de volgorde en de gegevens kloppen en overeenkomen met het situatieschema.</figcaption>
+  </figure>
+  <div class="tip"><span class="tag">Zo teken je het</span>
+    <ol class="tight">
+      <li>Begin bovenaan met de teller, dan de hoofdschakelaar en hoofddifferentieel.</li>
+      <li>Teken de differentiëlen van 30 mA met eronder hun automaten, elk met de kringletter.</li>
+      <li>Loop per kring de kabel af zoals hij in huis ligt en zet elk punt in die volgorde op de lijn.</li>
+      <li>Nummer elk punt (A1, A2…) en zet dezelfde nummers op het situatieschema, bij het punt op het grondplan.</li>
+      <li>Schrijf bij elke kring kabel, sectie en plaatsingswijze.</li>
+    </ol>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 8 -->
+<section class="mod" data-name="Schema's & keuring">
+  <div class="modhead"><span class="num">MODULE</span><h2>Schema's en keuring</h2>
+  <p class="goals"><b>Je leert:</b> welke documenten je nodig hebt en hoe de keuring verloopt.</p></div>
+  <p>Zonder schema's geen keuring. Het AREI vraagt twee tekeningen, samen met het keuringsverslag het "elektrisch dossier" van je woning. Hoe je de symbolen leest en een kring tekent, zie je in <a href="#m9">module 09</a>; een eerste indeling maak je met de <a href="#m8">kringplanner</a>.</p>
+  <div class="tbl"><table>
+    <tr><th>Document</th><th>Wat staat erop</th></tr>
+    <tr><td><b>Eendraadschema</b></td><td>De logische opbouw: teller, hoofddifferentieel, differentiëlen, automaten, en per kring alle punten met de AREI-symbolen. Per kring de sectie, het kabeltype en de beveiliging.</td></tr>
+    <tr><td><b>Situatieschema</b></td><td>Het grondplan per verdieping met de fysieke plaats van elk stopcontact, lichtpunt, schakelaar en toestel, genummerd zoals op het eendraadschema.</td></tr>
+  </table></div>
+  <div class="tip"><span class="tag">Naamgeving</span>
+    <p>Geef elke kring een letter (A, B, C…) en elk punt een nummer (A1, A2…). Zet dezelfde codes op de etiketten in je bord. De keurder volgt zo een kring van het schema naar de muur en terug.</p>
+  </div>
+  <h3>Wat de keurder doet</h3>
+  <ol class="steps">
+    <li><div><b>Documenten nakijken:</b> eendraadschema, situatieschema, EAN-code van de aansluiting.</div></li>
+    <li><div><b>Visuele controle:</b> kleurcodes, secties, beveiligingen, etiketten, badkamervolumes, bevestiging van kabels.</div></li>
+    <li><div><b>Metingen:</b> aardingsweerstand, isolatieweerstand, werking en gevoeligheid van elke differentieel, continuïteit van de beschermingsgeleiders.</div></li>
+    <li><div><b>Verslag:</b> conform of niet-conform, met de lijst van inbreuken.</div></li>
+  </ol>
+  <div class="rule"><span class="tag">Regel · geldigheid</span>
+    <ul class="tight">
+      <li>Een conform verslag voor een huishoudelijke installatie is <b>25 jaar</b> geldig.</li>
+      <li>Bij <b>verkoop</b> van een woning is een keuringsverslag verplicht. Bij een niet-conform verslag heeft de koper <b>18 maanden</b> na de akte om de installatie in orde te brengen en te laten herkeuren (voorheen 12 maanden).</li>
+      <li>Gemeenschappelijke delen van appartementsgebouwen zijn niet-huishoudelijk en worden om de 5 jaar gekeurd.</li>
+    </ul>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 9 -->
+<section class="mod" data-name="Laadpaal">
+  <div class="modhead"><span class="num">MODULE</span><h2>Laadpaal</h2>
+  <p class="goals"><b>Je leert:</b> hoe je een thuislaadpunt conform AREI hoofdstuk 7.22 aansluit.</p></div>
+  <p>Een laadpaal bevat vermogenselektronica die bij een fout een <b>gelijkstroomlek</b> kan veroorzaken. Een gewone differentieel type A werkt maar gegarandeerd tot 6 mA gelijkstroom. Daarboven kan zijn kern verzadigen: hij wordt "blind" en schakelt ook bij een gewone fout niet meer af.</p>
+  <div class="rule"><span class="tag">Regel · art. 7.22</span>
+    <ul class="tight">
+      <li>Elk laadpunt krijgt een <b>eigen toegewezen kring</b>.</li>
+      <li>Beveiliging met een differentieel van <b>max. 30 mA</b> waarvan de werking gegarandeerd blijft bij een gelijkstroomcomponent. Dat kan op twee manieren:
+        <ul class="tight"><li>een differentieel <b>type B</b>, of</li><li>een differentieel <b>type A</b> in combinatie met een detectie van <b>6 mA DC</b> (RDC-DD), die in de meeste recente laadpalen ingebouwd is.</li></ul></li>
+      <li>De 6 mA-detectie deel je nooit over meerdere laadpunten.</li>
+    </ul>
+  </div>
+  <div class="danger"><span class="tag">Klassieke fout</span>
+    <p>Twee laadpalen, elk met eigen detectie, samen achter één gewone type A-differentieel (bv. de hoofddifferentieel). Kleine DC-lekstromen tellen op en kunnen die type A verblinden. Oplossing: de laadkringen parallel aftakken vóór de type A, of de bovenliggende differentieel vervangen door een type B. Een type A mag nooit bovenstrooms van een type B staan.</p>
+  </div>
+  <h3>Stappenplan</h3>
+  <ol class="steps">
+    <li><div>Check de handleiding van je laadpaal: heeft hij ingebouwde 6 mA DC-detectie? Welke voorbeveiliging schrijft de fabrikant voor?</div></li>
+    <li><div>Bereken de sectie in functie van de laadstroom en de afstand. 6 mm² voor 32 A is gangbaar; bij lange trajecten ga je hoger.</div></li>
+    <li><div>Plaats in het bord: automaat + differentieel 30 mA (type A met detectie in de paal, anders type B).</div></li>
+    <li><div>Zet de laadpaal op je eendraad- en situatieschema en laat de uitbreiding keuren.</div></li>
+  </ol>
+  <div class="quiz"></div>
+</section>
+
+<!-- 10 -->
+<section class="mod" data-name="PV & batterij">
+  <div class="modhead"><span class="num">MODULE</span><h2>Zonnepanelen en thuisbatterij</h2>
+  <p class="goals"><b>Je leert:</b> wat er sinds 1 april 2026 verandert en wat altijd op je schema moet.</p></div>
+  <p>Het KB van 6 oktober 2025 bracht voor het eerst een volledig kader voor <b>gelijkstroominstallaties</b> in Boek 1. Het is van toepassing op installaties die vanaf 1 april 2026 worden aangelegd of gewijzigd. Wat vóór die datum conform gekeurd werd, blijft conform.</p>
+  <div class="rule"><span class="tag">Regel · wat verandert</span>
+    <ul class="tight">
+      <li>Netsystemen (TN, TT, IT) worden nu ook voor gelijkstroom gedefinieerd, met eigen beschermingsmaatregelen.</li>
+      <li>De keuze van de differentieel houdt rekening met gladde of gerimpelde gelijkstroomfouten; waar gladde DC kan lekken, is type B of een gelijkwaardige oplossing nodig.</li>
+      <li>De omvormer, de batterij en de DC-bekabeling staan op het eendraad- en situatieschema. Ontbreken ze, dan keurt de keurder af.</li>
+    </ul>
+  </div>
+  <h3>Zonnepanelen (PV)</h3>
+  <ul class="tight">
+    <li>De omvormer hangt op een eigen kring met een eigen automaat.</li>
+    <li>Plaats een zichtbare scheidingsschakelaar aan AC-zijde, en aan DC-zijde volgens de voorschriften van de omvormer.</li>
+    <li>Etiketteer het bord: "Opgelet, installatie met twee voedingsbronnen".</li>
+    <li>Meld de installatie aan bij de netbeheerder en laat haar keuren vóór ingebruikname.</li>
+  </ul>
+  <h3>Thuisbatterij</h3>
+  <ul class="tight">
+    <li>Een AC-gekoppelde batterij heeft een eigen omvormer en eigen kring; een DC-gekoppelde batterij (hybride omvormer) valt onder de nieuwe DC-regels.</li>
+    <li>Volg de fabrikant voor ventilatie, plaatsing en afstand tot brandbare materialen.</li>
+    <li>Batterij, omvormer en beveiligingen komen op beide schema's.</li>
+  </ul>
+  <div class="danger"><span class="tag">Opgelet</span>
+    <p>DC-strings van zonnepanelen halen makkelijk 400 tot 600 V en een DC-boog dooft niet vanzelf zoals een AC-boog. Werk aan de DC-kant laat je bij voorkeur over aan een installateur met ervaring in PV.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 11 -->
+<section class="mod" data-name="Domotica & eindtest">
+  <div class="modhead"><span class="num">MODULE</span><h2>Domotica en eindtest</h2>
+  <p class="goals"><b>Je leert:</b> hoe je slimme sturing en zeer lage spanning conform integreert, en je test alles samen.</p></div>
+  <p>Domotica, zoals KNX, een Shelly achter een schakelaar of een DIN-relais aangestuurd door Home Assistant, verandert niets aan de basisregels: sectie, beveiliging, differentieel en aantal punten blijven gelden. Er komen wel een paar aandachtspunten bij.</p>
+  <ul class="tight">
+    <li><b>Scheiding van spanningen:</b> busleidingen en 24 V-kabels (ZLVS) liggen niet los tussen 230 V-draden in dezelfde doos, tenzij ze geïsoleerd zijn voor de hoogste spanning of fysiek gescheiden.</li>
+    <li><b>Modules in inbouwdozen:</b> gebruik enkel CE-gemarkeerde modules, respecteer de maximale belasting en voorzie voldoende ruimte en ventilatie in de doos.</li>
+    <li><b>Schema:</b> het eendraadschema toont wat de verbruikers schakelt (relais, dimmer, module) en achter welke automaat die staat.</li>
+    <li><b>Schakelen in de fase:</b> een relais of schakelaar onderbreekt altijd de fase, nooit enkel de nul.</li>
+  </ul>
+  <div class="tip"><span class="tag">Eindcontrole voor de keuring</span>
+    <ul class="tight">
+      <li>Elke kring heeft een etiket in het bord dat overeenkomt met het schema.</li>
+      <li>Geen enkele kring met licht of stopcontacten hangt enkel achter de 300 mA.</li>
+      <li>Max. 8 kringen per 30 mA-differentieel, max. 8 contactpunten per kring.</li>
+      <li>Alle dozen dicht, alle afdekplaten gemonteerd, geen blanke draad zichtbaar.</li>
+      <li>Aardlus of aardpennen bereikbaar via de meetklem.</li>
+      <li>Alle differentiëlen getest met de testknop.</li>
+    </ul>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- NEW FOUT -->
+<section class="mod" data-name="Foutzoeken">
+  <div class="modhead"><span class="num">MODULE</span><h2>Foutzoeken</h2>
+  <p class="goals"><b>Je leert:</b> systematisch uitzoeken waarom iets uitvalt, wat je zelf veilig kan doen en wanneer je stopt.</p></div>
+  <p>De meeste storingen in een woning volgen een vast patroon. Wie methodisch werkt, vindt de oorzaak meestal in een paar minuten, zonder een doos te openen. De hoofdregel: <b>eerst isoleren, dan pas openmaken</b>.</p>
+  <div class="danger"><span class="tag">Stop meteen en bel een vakman bij</span>
+    <ul class="tight">
+      <li>Een stopcontact, schakelaar of stekker die warm of bruin verkleurd is, of een brandgeur.</li>
+      <li>Knetteren of vonken in een doos of in het bord.</li>
+      <li>Een automaat of differentieel die meteen opnieuw uitvalt, ook met alle toestellen uitgetrokken.</li>
+      <li>Water in een doos, een bord of een buitenstopcontact.</li>
+    </ul>
+    <p>Schakel in die gevallen de kring uit en laat hem uit.</p>
+  </div>
+
+  <h3>Wegwijzer: wat is er gebeurd?</h3>
+  <p>Klik je situatie aan en volg de stappen.</p>
+  <div class="tree" id="tree" aria-live="polite"></div>
+
+  <h3>Je meetgereedschap</h3>
+  <div class="tbl"><table>
+    <tr><th>Toestel</th><th>Waarvoor</th><th>Let op</th></tr>
+    <tr><td><b>Tweepolige spanningstester</b></td><td>Nagaan of er spanning staat, vóór je werkt</td><td>Het veiligste toestel voor een leek. Test hem eerst op een werkend stopcontact.</td></tr>
+    <tr><td><b>Multimeter</b></td><td>Spanning meten (V~), doorgang en weerstand (enkel spanningsloos)</td><td>Kies een toestel met minstens CAT III 300 V. Meet nooit stroom (A) door de meetpennen in een stopcontact te steken: dat is een kortsluiting.</td></tr>
+    <tr><td><b>Stopcontacttester</b></td><td>Snel zien of fase, nul en aarde aanwezig zijn</td><td>Handig, maar geen vervanging voor een echte meting.</td></tr>
+    <tr><td><b>Contactloze spanningzoeker</b></td><td>Een draad in de muur terugvinden, snel een eerste check</td><td>Niet betrouwbaar om spanningsloosheid vast te stellen.</td></tr>
+  </table></div>
+  <div class="why"><span class="tag">Wat je zelf kan meten</span>
+    <p>Spanning aan een stopcontact (ongeveer 230 V tussen fase en nul, 0 tot enkele volt tussen nul en aarde). Doorgang van een draad of een lamp, maar alleen als de kring uit staat. Isolatieweerstand en aardingsweerstand meten vraagt speciale toestellen; dat doet de keurder of de installateur.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<footer>
+  <div class="wire" aria-hidden="true"><span class="w-ph"></span><span class="w-n"></span><span class="w-pe"></span></div>
+  <p>Deze cursus vat AREI Boek 1 samen zoals het geldt in september 2026, inclusief het KB van 3 oktober 2024 (badkamers, van kracht 1 maart 2025) en het KB van 6 oktober 2025 (gelijkstroom, van kracht 1 april 2026). Hij vervangt de officiële tekst niet. De geconsolideerde versie vind je bij de FOD Economie; bij twijfel beslist de keurder.</p>
+  <p><a href="https://economie.fgov.be/nl/themas/energie/veiligheid-van-elektrische/algemeen-reglement-op-de" target="_blank" rel="noopener">AREI bij de FOD Economie</a></p>
+</footer>
+</main>
+</div>
+</body>
+</html>
