@@ -9,7 +9,7 @@ const T={
   note:"De eenvoudigste: fase op L, de draad naar de lamp op 1. Nul en aarde gaan niet via de schakelaar."},
  twee:{n:"Tweepolig",terms:[["L",LX,80],["N",LX,160],["1",RX,80],["2",RX,160]],wires:[["L","bruin","l","fase"],["N","blauw","l","nul"],["1","zwart","r","fase naar de lamp"],["2","blauw","r","nul naar de lamp"]],
   note:"Twee ingangen, twee uitgangen. Sommige merken schrijven L1 en L2 (of P en N) aan de ingang. Hier gaat de nul wél via de schakelaar, want die onderbreekt beide polen."},
- wissel:{n:"Wissel (hotel)",terms:[["L",LX,120],["1",RX,80],["1'",RX,160]],wires:[["L","bruin","l","fase (1e) of naar lamp (2e schakelaar)"],["1","grijs","r","wisseldraad 1"],["1'","grijs","r","wisseldraad 2"]],
+ wissel:{n:"Wissel",terms:[["L",LX,120],["1",RX,80],["1'",RX,160]],wires:[["L","bruin","l","fase (1e) of naar lamp (2e schakelaar)"],["1","grijs","r","wisseldraad 1"],["1'","grijs","r","wisseldraad 2"]],
   note:"Twee identieke schakelaars. Bij de eerste komt de fase op L, bij de tweede de draad naar de lamp. De wisseldraden komen op 1 en 1'. Of wisseldraad 1 op 1 of op 1' komt, maakt niet uit: de lamp werkt, alleen de stand van de wip is dan omgekeerd."},
  dwissel:{n:"Dubbele wissel",terms:[["L1",LX,70],["L2",LX,170],["1",RX,50],["1'",RX,95],["2",RX,145],["2'",RX,190]],wires:[["L1","bruin","l","fase"],["1","grijs","r","wisseldraden lamp 1"],["1'","grijs","r",""],["2","grijs","r","wisseldraden lamp 2"],["2'","grijs","r",""]],bridge:["L1","L2"],
   note:"Twee wisselschakelaars onder één plaat. Hangen beide lampen op dezelfde kring, dan leg je een brugje van L1 naar L2 (vaak al voorzien of meegeleverd). Zitten ze op verschillende kringen, dan komt op L2 de fase van de andere kring en haal je het brugje weg."},

@@ -18,10 +18,10 @@ const Q={
  {p:"Wat betekent IPX4?",o:["Stofdicht","Bestand tegen opspattend water","Waterdicht bij onderdompeling","4 mm isolatie"],a:1,e:"Tweede cijfer 4 = opspattend water. De X betekent: niet getest op vaste voorwerpen."}
 ],
 "Schakelingen":[
- {p:"Hoe noemt men in Vlaanderen een schakeling waarbij je één lamp vanaf twee plaatsen bedient?",o:["Kruisschakeling","Hotelschakeling","Serieschakeling","Teleruptor"],a:1,e:"Hotelschakeling of wisselschakeling: twee wisselschakelaars met twee wisseldraden ertussen."},
+ {p:"Hoe noemt men in Vlaanderen een schakeling waarbij je één lamp vanaf twee plaatsen bedient?",o:["Kruisschakeling","Wisselschakeling","Serieschakeling","Teleruptor"],a:1,e:"Wisselschakeling: twee wisselschakelaars met twee wisseldraden ertussen. Hotelschakeling is de naam voor de uitbreiding vanaf drie plaatsen, met een kruisschakelaar erbij."},
  {p:"Op welke klem van de eerste wisselschakelaar komt de fase?",o:["Op een willekeurige klem","Op de gemeenschappelijke klem","Op een wisselcontact","Op de aardingsklem"],a:1,e:"De fase komt op de gemeenschappelijke klem. Op een wisselcontact werkt de schakeling maar half."},
  {p:"Hoeveel draden lopen er tussen de twee wisselschakelaars?",o:["1","2","3","4"],a:1,e:"Twee wisseldraden. Nul en aarde gaan rechtstreeks naar de lamp."},
- {p:"Je wil een lamp in een gang vanaf vier plaatsen bedienen. Wat is de eenvoudigste oplossing?",o:["Vier enkelpolige schakelaars in serie","Twee hotelschakelingen","Een teleruptor met vier drukknoppen","Een dimmer"],a:2,e:"Een teleruptor met drukknoppen in parallel. Een kruisschakeling kan ook, maar wordt snel een kluwen."},
+ {p:"Je wil een lamp in een gang vanaf vier plaatsen bedienen. Wat is de eenvoudigste oplossing?",o:["Vier enkelpolige schakelaars in serie","Twee wisselschakelingen","Een teleruptor met vier drukknoppen","Een dimmer"],a:2,e:"Een teleruptor met drukknoppen in parallel. Een kruisschakeling kan ook, maar wordt snel een kluwen."},
  {p:"Waarom trek je de nul best ook naar elke schakelaardoos?",o:["Het AREI verplicht het in elke doos","Voor bewegingsmelders, verlichte schakelaars en slimme modules later","Om de lamp feller te laten branden","Zodat de schakelaar geaard is"],a:1,e:"Veel elektronische bedieningen hebben de nul nodig. Nu een draad extra bespaart later slijpwerk."},
  {p:"Op een wisselschakelaar staan de klemmen L, 1 en 1'. Waar komen de twee wisseldraden?",o:["Op L en 1","Op 1 en 1'","Op L en 1'","Maakt niet uit, alle drie zijn gelijk"],a:1,e:"L is de gemeenschappelijke klem (fase of draad naar de lamp), 1 en 1' zijn de wisselcontacten."},
  {p:"Een dubbele wisselschakelaar (L1, 1, 1' en L2, 2, 2') bedient twee lampen op dezelfde kring. Wat doe je met L2?",o:["Niets aansluiten","Een brug naar L1 leggen","De nul erop aansluiten","De aarde erop aansluiten"],a:1,e:"Zelfde kring: brug van L1 naar L2, zodat beide schakelaars de fase krijgen."}
@@ -35,7 +35,7 @@ const Q={
 "Differentiëlen":[
  {p:"Wat is de rol van de hoofddifferentieel van 300 mA?",o:["Bescherming tegen overbelasting","Vooral brandbeveiliging tegen lekstromen","Bescherming tegen blikseminslag","Meten van het verbruik"],a:1,e:"300 mA beschermt vooral tegen brand. Voor personenbescherming is 30 mA nodig."},
  {p:"Hoeveel eindstroombanen mogen er max. achter één 30 mA-differentieel?",o:["4","6","8","12"],a:2,e:"Sinds 1 juni 2023: max. 8 eindstroombanen per 30 mA."},
- {p:"Welke kring mag direct achter de 300 mA, zonder 30 mA?",o:["Stopcontacten slaapkamer","Verlichting hall","Inbouwkookplaat (vaste aansluiting)","Stopcontact wasmachine"],a:2,e:"Vaste toestellen zonder stopcontact mogen achter de 300 mA. Licht en stopcontacten niet."},
+ {p:"Welke kring mag zonder bijkomende 30 mA (enkel achter de 300 mA en zijn eigen automaat)?",o:["Stopcontacten slaapkamer","Verlichting hall","Inbouwkookplaat (vaste aansluiting)","Stopcontact wasmachine"],a:2,e:"Vaste toestellen zonder stopcontact mogen zonder bijkomende 30 mA, maar krijgen wel gewoon hun eigen automaat. Licht en stopcontacten hebben altijd ook een 30 mA nodig."},
  {p:"Welk type differentieel plaats je in een nieuwe huishoudelijke installatie minimaal?",o:["Type AC","Type A","Type F verplicht","Maakt niet uit"],a:1,e:"In huishoudelijke installaties is type A vereist."}
 ],
 "Aarding":[

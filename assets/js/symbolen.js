@@ -10,7 +10,7 @@ const SYM={
  cdA:["Contactdoos met beschermingsgeleider",L(15,20,45,20)+L(45,20,45,34)+cup+L(39,32,51,32)],
  enk:["Schakelaar (enkelpolig)",`<circle cx="32" cy="50" r="5" ${S}/>`+L(36,46,66,16)],
  twee:["Schakelaar (tweepolig)",`<circle cx="32" cy="50" r="5" ${S}/>`+L(36,46,58,24)+L(44.5,30.5,51.5,37.5)+L(49.5,25.5,56.5,32.5)+L(54.5,20.5,61.5,27.5)],
- wis:["Wisselschakelaar (hotel)",`<circle cx="38" cy="44" r="5" ${S}/>`+L(42,40,64,18)+L(64,18,70,24)+L(34,48,12,70)+L(12,70,6,64)],
+ wis:["Wisselschakelaar",`<circle cx="38" cy="44" r="5" ${S}/>`+L(42,40,64,18)+L(64,18,70,24)+L(34,48,12,70)+L(12,70,6,64)],
  kruis:["Kruisschakelaar",`<circle cx="38" cy="44" r="5" ${S}/>`+L(42,40,64,18)+L(64,18,70,24)+L(34,48,12,70)+L(12,70,6,64)+L(34,40,12,18)+L(12,18,6,24)+L(42,48,64,70)+L(64,70,70,64)],
  serie:["Omschakelaar (serieschakelaar)",`<circle cx="38" cy="44" r="5" ${S}/>`+L(42,40,64,18)+L(64,18,70,24)+L(34,40,12,18)+L(12,18,6,24)],
  druk:["Drukknop",`<circle cx="45" cy="38" r="14" ${S}/><circle cx="45" cy="38" r="5" ${S}/>`],

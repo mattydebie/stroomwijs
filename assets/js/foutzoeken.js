@@ -29,7 +29,7 @@ const N={
  punt:{q:"Wat werkt er niet?",o:[["Een lamp","punt_lamp"],["Een stopcontact","punt_stop"]]},
  punt_lamp:{q:"Heb je de lamp zelf al vervangen door een lamp die zeker werkt?",o:[["Ja, nog steeds niets","punt_lamp2"],["Nee","punt_lamp_vervang"]]},
  punt_lamp_vervang:{r:"ok",t:"Begin bij het eenvoudigste.",s:["Vervang de lamp door een lamp die ergens anders werkt.","Bij een ledspot met driver of transformator kan ook de driver stuk zijn."]},
- punt_lamp2:{q:"Wordt de lamp bediend met een hotel- of kruisschakeling of een teleruptor?",o:[["Ja","punt_lamp_hotel"],["Nee, een gewone schakelaar","punt_los"]]},
+ punt_lamp2:{q:"Wordt de lamp bediend met een wissel-, kruis- of hotelschakeling, of met een teleruptor?",o:[["Ja","punt_lamp_hotel"],["Nee, een gewone schakelaar","punt_los"]]},
  punt_lamp_hotel:{r:"warn",t:"Kijk naar de schakeling.",s:["Probeer de lamp vanaf elke bedieningsplaats. Werkt het in bepaalde combinaties wel, dan zit er een losse wisseldraad of staat de fase op een wisselcontact (zie module Schakelingen).","Bij een teleruptor: hoor je hem klikken in het bord als je drukt? Geen klik: stuurkring of spoel. Wel een klik: vermogenscontact of lampkring."]},
  punt_stop:{q:"Werken de andere stopcontacten op dezelfde kring wel?",o:[["Ja, alleen dit ene niet","punt_een"],["Nee, meerdere na elkaar werken niet","punt_los"]]},
  punt_een:{r:"warn",t:"Het stopcontact zelf of zijn aansluiting.",s:["Test eerst met een ander toestel: misschien is het toestel stuk.","Schakel de automaat uit, controleer met de tweepolige tester dat het punt spanningsloos is, en haal het stopcontact uit de doos.","Kijk of een draad los zit of uit een klem geschoven is. Vervang het stopcontact als het verkleurd, gebarsten of versleten is."]},
