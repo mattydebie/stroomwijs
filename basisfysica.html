@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Basisfysica van elektriciteit · Stroomwijs</title>
+<meta name="description" content="De natuurkunde achter elektriciteit: atomen, stroom, spanning, weerstand, de wet van Ohm en hoe je weerstanden schakelt. Achtergrond bij de AREI-cursus van Stroomwijs.">
+<meta property="og:title" content="Basisfysica van elektriciteit · Stroomwijs">
+<meta property="og:description" content="Van atoom tot stroomkring: de natuurkunde achter de AREI-cursus, in behapbare modules met toetsen.">
+<meta name="theme-color" content="#EDF0F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12181D" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2315212B'/%3E%3Crect x='5' y='9' width='22' height='4' rx='2' fill='%23A0612E'/%3E%3Crect x='5' y='15' width='22' height='4' rx='2' fill='%232A5C9E'/%3E%3Crect x='5' y='21' width='11' height='4' rx='2' fill='%232F8A3C'/%3E%3Crect x='16' y='21' width='11' height='4' rx='2' fill='%23E3C21C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/quiz-data-basis.js" defer></script>
+<script src="assets/js/core.js" defer></script>
+</head>
+<body>
+<div class="wrap" lang="nl">
+<nav class="side" aria-label="Modules">
+  <div class="brand">
+    <div class="wire" aria-hidden="true"><span class="w-ph"></span><span class="w-n"></span><span class="w-pe"></span></div>
+    <b>Stroomwijs</b>
+    <div class="prog"><span id="progtxt">0 van 0 vragen juist</span><div class="bar"><i id="progbar"></i></div></div>
+  </div>
+  <ol id="navlist"></ol>
+</nav>
+
+<main>
+<header class="hero">
+  <span class="eyebrow">Achtergrondmodule · natuurkunde, geen AREI</span>
+  <h1>Basisfysica van elektriciteit</h1>
+  <p class="lede">Waarom geleidt koper wel en rubber niet? Wat betekent die 30 mA nu eigenlijk? Deze module legt de natuurkunde uit die achter elke regel in de AREI-cursus zit: van het atoom tot de wet van Ohm en het schakelen van weerstanden. Los van het AREI zelf, dus geen verplichte kost om je installatie te mogen keuren, maar wel handig om te snappen waarom de regels zijn zoals ze zijn.</p>
+  <div class="facts">
+    <span class="chip">7 modules</span><span class="chip">wet van Ohm</span><span class="chip">serie &amp; parallel</span><span class="chip">Thévenin &amp; Norton</span>
+  </div>
+  <p><a href="index.html">← Terug naar de AREI-cursus</a></p>
+</header>
+
+<!-- 0 -->
+<section class="mod" data-name="Atomen en geleiders">
+  <div class="modhead"><span class="num">MODULE</span><h2>Atomen en geleiders</h2>
+  <p class="goals"><b>Je leert:</b> wat elektrische lading is, wat een vrij elektron is, en waarom sommige materialen stroom geleiden en andere niet.</p></div>
+  <p>Alle materialen bestaan uit moleculen, en moleculen uit atomen. Een atoom heeft een kern met <b>protonen</b> (positieve lading) en <b>neutronen</b> (geen lading); daarrond draaien <b>elektronen</b> (negatieve lading), verdeeld over schillen rond de kern. Zolang een atoom evenveel protonen als elektronen heeft, is het elektrisch neutraal.</p>
+  <p>Voeg je een elektron toe aan een neutraal atoom, of neem je er één weg, dan krijg je een <b>ion</b>: negatief geladen bij een elektron te veel, positief bij een elektron te weinig.</p>
+  <div class="tip"><span class="tag">Vrij elektron</span>
+    <p>Een elektron in de buitenste schil zit maar los vast. Door verwarming, wrijving, botsing of straling kan het loskomen van zijn atoom: dan spreken we van een <b>vrij elektron</b>. Dat vrije elektron kan bij een naburig atoom een ander elektron "aanstoten", zoals de eerste knikker in een rij die de laatste doet wegspringen. Zorg je ervoor dat die elektronen zich allemaal dezelfde richting op bewegen, dan heb je een <b>elektrische stroom</b>.</p>
+  </div>
+  <h3>Geleiders, isolatoren en halfgeleiders</h3>
+  <p>Materialen worden ingedeeld naar hoe makkelijk ze vrije elektronen leveren.</p>
+  <div class="tbl"><table>
+    <tr><th>Soort</th><th>Eigenschap</th><th>Voorbeelden</th></tr>
+    <tr><td><b>Geleiders</b></td><td>Geven hun buitenste elektronen makkelijk vrij</td><td>Koper, aluminium, zilver, ijzer</td></tr>
+    <tr><td><b>Isolatoren</b></td><td>Houden hun elektronen zeer stevig vast; een perfecte isolator bestaat niet</td><td>PVC, rubber, glas, droge lucht</td></tr>
+    <tr><td><b>Halfgeleiders</b></td><td>Zitten er tussenin; hun gedrag is te sturen door ze te "doperen"</td><td>Silicium, germanium (diodes, transistoren, chips)</td></tr>
+  </table></div>
+  <div class="why"><span class="tag">Waarom dit belangrijk is</span>
+    <p>Elke kabel die je legt bestaat uit een geleider (koper) omringd door een isolator (de kunststof mantel). Weet je waarom die twee zich zo verschillend gedragen, dan snap je ook beter waarom een beschadigde isolatie gevaarlijk is: de stroom kan dan een pad vinden waar hij niet hoort te lopen.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 1 -->
+<section class="mod" data-name="De stroomkring en de stroomzin">
+  <div class="modhead"><span class="num">MODULE</span><h2>De stroomkring en de stroomzin</h2>
+  <p class="goals"><b>Je leert:</b> uit welke onderdelen een stroomkring bestaat, en waarom de pijltjes op een schema de "verkeerde" kant op wijzen.</p></div>
+  <h3>De waterkring als vergelijking</h3>
+  <p>Een elektrische kring is makkelijker te snappen via een vergelijking met water. Een pomp houdt een hoogteverschil in stand tussen twee reservoirs; dat hoogteverschil drijft een turbine aan via een kraan. Hoe groter het hoogteverschil, hoe meer druk en dus hoe meer kracht de turbine kan leveren.</p>
+  <div class="tbl"><table>
+    <tr><th>Waterkring</th><th>Elektrische kring</th></tr>
+    <tr><td>Pomp</td><td>Batterij / bron: houdt het drukverschil (de spanning) in stand</td></tr>
+    <tr><td>Buizen</td><td>Geleiders: vervoeren de stroom</td></tr>
+    <tr><td>Kraan</td><td>Schakelaar: laat de stroom door of sluit af</td></tr>
+    <tr><td>Turbine</td><td>Verbruiker (bv. een lamp): zet de stroom om in bruikbare energie</td></tr>
+  </table></div>
+  <p>Een gesloten stroomkring heeft minstens drie dingen nodig: een <b>bron</b>, een <b>verbruiker</b> en <b>geleiders</b> die beide verbinden. Een verbruiker "verbruikt" geen elektronen; hij zet enkel hun energie om in een andere vorm, bijvoorbeeld warmte en licht in een gloeilamp.</p>
+  <h3>Elektronenstroom versus conventionele stroom</h3>
+  <p>De elektronen zelf bewegen van de min-pool naar de plus-pool van de bron: dat is de echte <b>elektronenstroom</b>. Toen de vroege elektriciteitspioniers hun theorieën opbouwden, gingen ze er echter van uit dat de lading van plus naar min stroomde. Tegen de tijd dat bleek dat het net andersom was, waren al zoveel begrippen op die aanname gebaseerd, dat men de afspraak gewoon behield.</p>
+  <div class="tip"><span class="tag">Op elk schema</span>
+    <p>Wat je op elektrische schema's ziet als "de stroomzin" (met pijltjes van + naar −) is dus de <b>conventionele stroom</b>, niet de echte beweging van de elektronen. Voor je berekeningen en voor het lezen van schema's maakt dat niets uit; het is gewoon een afspraak die iedereen consequent gebruikt.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 2 -->
+<section class="mod" data-name="Spanning, stroom, weerstand en de wet van Ohm">
+  <div class="modhead"><span class="num">MODULE</span><h2>Spanning, stroom, weerstand en de wet van Ohm</h2>
+  <p class="goals"><b>Je leert:</b> wat lading, stroom, spanning en weerstand precies betekenen, hoe ze samenhangen via de wet van Ohm, en hoe je grote en kleine getallen leesbaar houdt.</p></div>
+  <p>Vermogen is arbeid per tijdseenheid: hoe sneller je eenzelfde karwei klaart, hoe groter het vermogen dat je daarvoor nodig hebt. In elektrische termen: het vermogen (in Watt) is de energie die per seconde wordt omgezet.</p>
+  <h3>Lading, stroom en spanning</h3>
+  <div class="tbl"><table>
+    <tr><th>Grootheid</th><th>Symbool</th><th>Eenheid</th><th>Betekenis</th></tr>
+    <tr><td>Lading</td><td class="num">Q</td><td class="num">Coulomb (C)</td><td>De hoeveelheid elektrische lading; 1 C komt overeen met de lading van ca. 6,3 × 10¹⁸ elektronen</td></tr>
+    <tr><td>Stroom</td><td class="num">I</td><td class="num">Ampère (A)</td><td>Hoeveel lading er per seconde passeert: Q = I × t</td></tr>
+    <tr><td>Spanning</td><td class="num">U</td><td class="num">Volt (V)</td><td>De "drang" van elektronen om zich te verplaatsen, het potentiaalverschil tussen twee punten</td></tr>
+    <tr><td>Weerstand</td><td class="num">R</td><td class="num">Ohm (Ω)</td><td>Hoeveel tegenstand een materiaal biedt aan de stroomdoorgang</td></tr>
+  </table></div>
+  <div class="rule"><span class="tag">De wet van Ohm</span>
+    <p class="num">R = U / I &nbsp;·&nbsp; U = I × R &nbsp;·&nbsp; I = U / R</p>
+    <p>Bij een gegeven weerstand stijgt de stroom evenredig met de spanning. Ken je twee van de drie grootheden, dan bereken je de derde.</p>
+  </div>
+  <p>Deze grootheden hangen ook samen met vermogen: P = U × I (dat gebruikte je trouwens al in de rekenhulp van <a href="index.html#m1">module 01</a> van de AREI-cursus, om van vermogen naar stroomsterkte te gaan).</p>
+  <h3>Grote en kleine getallen: de voorvoegsels</h3>
+  <p>Een Ampère of een Ohm is in de praktijk vaak te groot of te klein om handig mee te rekenen. Daarom gebruiken we voorvoegsels:</p>
+  <div class="tbl"><table>
+    <tr><th>Voorvoegsel</th><th>Symbool</th><th>Factor</th></tr>
+    <tr><td>mega</td><td class="num">M</td><td class="num">× 1 000 000</td></tr>
+    <tr><td>kilo</td><td class="num">k</td><td class="num">× 1 000</td></tr>
+    <tr><td>milli</td><td class="num">m</td><td class="num">× 0,001</td></tr>
+    <tr><td>micro</td><td class="num">μ</td><td class="num">× 0,000 001</td></tr>
+  </table></div>
+  <div class="why"><span class="tag">Herken je dit?</span>
+    <p>Die 30 mA en 300 mA differentieel uit <a href="index.html#m5">module 05</a> zijn dus 0,030 A en 0,300 A: piepkleine lekstromen, ruim onder wat een gewone automaat zou opmerken. Vandaar dat je een apart toestel nodig hebt om ze te detecteren.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 3 -->
+<section class="mod" data-name="Geleiders en hun weerstand">
+  <div class="modhead"><span class="num">MODULE</span><h2>Geleiders en hun weerstand</h2>
+  <p class="goals"><b>Je leert:</b> waarom kabeldikte ertoe doet, en wat temperatuur met weerstand te maken heeft.</p></div>
+  <h3>De wet van Pouillet</h3>
+  <p>De weerstand van een stuk geleider hangt af van drie dingen: het materiaal, de lengte en de doorsnede.</p>
+  <p class="num">R = ρ × l / A</p>
+  <p>Hierin is <b>ρ</b> (rho) de soortelijke weerstand van het materiaal, <b>l</b> de lengte in meter en <b>A</b> de doorsnede in mm². Koper heeft een lage soortelijke weerstand (goede geleider), een langere draad heeft meer weerstand, en een dikkere draad (grotere doorsnede) heeft minder weerstand.</p>
+  <div class="why"><span class="tag">De link met het AREI</span>
+    <p>Dit is precies waarom de kabeldikte in <a href="index.html#m4">module 04</a> zo belangrijk is. Een te dunne kabel bij een te hoge stroom heeft te veel weerstand, warmt op, en dat is een brandrisico. De stroomdichtheid (stroom per mm² doorsnede) is de vuistregel die daaraan grenzen stelt; het AREI vertaalt dat naar concrete tabellen: minimaal 1,5 mm² voor verlichting, 2,5 mm² voor stopcontacten.</p>
+  </div>
+  <p>Bij lange leidingen speelt ook de <b>spanningsval</b> mee: de weerstand van de kabel zelf "eet" een stukje van de spanning op, zodat het toestel op het einde van de lijn iets minder dan 230 V krijgt. Bij een lange voedingskabel naar bijvoorbeeld een tuinhuis reken je dat best na.</p>
+  <h3>Temperatuur en weerstand: PTC en NTC</h3>
+  <p>De weerstand van een materiaal verandert met de temperatuur.</p>
+  <ul class="tight">
+    <li><b>PTC</b> (positieve temperatuurscoëfficiënt): de weerstand stijgt bij opwarming. De meeste metalen, waaronder koper, gedragen zich zo.</li>
+    <li><b>NTC</b> (negatieve temperatuurscoëfficiënt): de weerstand daalt bij opwarming. Koolstof en sommige speciale legeringen (bv. constantaan) doen dit.</li>
+  </ul>
+  <p>PTC- en NTC-weerstanden worden ook gebruikt als temperatuursensor: meet je de weerstand, dan ken je de temperatuur.</p>
+  <div class="quiz"></div>
+</section>
+
+<!-- 4 -->
+<section class="mod" data-name="Weerstanden schakelen: serie en parallel">
+  <div class="modhead"><span class="num">MODULE</span><h2>Weerstanden schakelen: serie en parallel</h2>
+  <p class="goals"><b>Je leert:</b> hoe je de vervangingsweerstand van meerdere weerstanden berekent, in serie en parallel.</p></div>
+  <h3>Serieschakeling</h3>
+  <p>Bij een serieschakeling volgt de stroom één pad door alle weerstanden na elkaar. Overal loopt dezelfde stroom, maar elke weerstand "verbruikt" een deel van de spanning.</p>
+  <div class="rule"><span class="tag">Spanningswet van Kirchhoff</span>
+    <p class="num">Ubron = U1 + U2 + U3 + … &nbsp;·&nbsp; RTS = R1 + R2 + R3 + …</p>
+    <p>De som van de deelspanningen is gelijk aan de bronspanning. De vervangingsweerstand van een serieschakeling is gewoon de som van alle weerstanden.</p>
+  </div>
+  <p><b>Voorbeeld:</b> drie weerstanden van 20 Ω, 30 Ω en 50 Ω in serie op 100 V. RTS = 20 + 30 + 50 = 100 Ω. De stroom is dan I = U/RTS = 100/100 = 1 A, overal in de kring dezelfde stroom.</p>
+  <h3>Parallelschakeling</h3>
+  <p>Bij een parallelschakeling krijgt elke weerstand dezelfde spanning, maar ze verdelen de stroom onderling.</p>
+  <div class="rule"><span class="tag">Stroomwet van Kirchhoff</span>
+    <p class="num">IT = I1 + I2 + I3 + … &nbsp;·&nbsp; 1/RTP = 1/R1 + 1/R2 + 1/R3 + …</p>
+    <p>De som van de deelstromen is gelijk aan de totale stroom. De vervangingsweerstand van een parallelschakeling is altijd kleiner dan de kleinste weerstand in de groep.</p>
+  </div>
+  <p><b>Voorbeeld:</b> twee weerstanden van 6 Ω en 3 Ω parallel. 1/RTP = 1/6 + 1/3 = 1/6 + 2/6 = 3/6, dus RTP = 2 Ω: kleiner dan de kleinste van de twee (3 Ω), zoals verwacht.</p>
+  <div class="tip"><span class="tag">Controle</span>
+    <p>Twee vuistregels om je berekening te checken: door de kleinste weerstand vloeit altijd de grootste stroom, en de parallelle vervangingsweerstand is altijd kleiner dan de kleinste losse weerstand.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 5 -->
+<section class="mod" data-name="Gemengde schakelingen">
+  <div class="modhead"><span class="num">MODULE</span><h2>Gemengde schakelingen</h2>
+  <p class="goals"><b>Je leert:</b> hoe je een kring met zowel serie- als parallelstukken stap voor stap oplost.</p></div>
+  <p>De meeste echte schakelingen zijn niet zuiver serie of zuiver parallel, maar een mix. De aanpak blijft simpel: werk van binnen naar buiten.</p>
+  <ol class="steps">
+    <li><div><b>Zoek de kleinste groepjes.</b> Welke weerstanden staan zuiver in serie of zuiver parallel met elkaar, los van de rest?</div></li>
+    <li><div><b>Vervang dat groepje.</b> Bereken de vervangingsweerstand van dat stukje en teken de kring opnieuw, met dat groepje als één weerstand.</div></li>
+    <li><div><b>Herhaal.</b> Herhaal stap 1 en 2 op de vereenvoudigde kring, tot er nog maar één weerstand overblijft.</div></li>
+    <li><div><b>Reken terug.</b> Met de totale stroom en spanning gekend, kan je vervolgens terugrekenen naar de stroom en spanning van elk afzonderlijk onderdeel.</div></li>
+  </ol>
+  <div class="tip"><span class="tag">Vuistregel</span>
+    <p>Teken de kring telkens opnieuw na elke vereenvoudiging. Dat lijkt omslachtig, maar voorkomt bijna alle fouten: je ziet in één oogopslag welke weerstanden nu wél zuiver serie of parallel staan.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<!-- 6 -->
+<section class="mod" data-name="Verder kijken: Thévenin en Norton">
+  <div class="modhead"><span class="num">MODULE</span><h2>Verder kijken: Thévenin en Norton</h2>
+  <p class="goals"><b>Je leert:</b> wat de theorema's van Thévenin en Norton doen, zonder er zelf mee te moeten rekenen.</p></div>
+  <p>Deze module is puur achtergrond: voor het bekabelen en keuren van je eigen woning heb je dit niet nodig. Kom je de termen toch tegen (bv. in een cursus elektronica), dan weet je nu wat ermee bedoeld wordt.</p>
+  <p>Een ingewikkelde kring met meerdere bronnen en weerstanden herrekenen telkens er een ander toestel wordt aangesloten, is omslachtig. Het theorema van <b>Thévenin</b> lost dat op: het herleidt, gezien vanaf twee aansluitklemmen, elke lineaire kring tot één simpele vervangingsbron (UTH) met één serieweerstand (RTH). Het theorema van <b>Norton</b> doet net hetzelfde, maar met een stroombron en een parallelle weerstand in plaats van een spanningsbron met serieweerstand.</p>
+  <div class="why"><span class="tag">Waarvoor dient dit?</span>
+    <p>Een netbeheerder gebruikt dit soort vereenvoudiging om te controleren of een klant, ongeacht welke toestellen er worden aan- en uitgeschakeld, altijd een spanning binnen de norm krijgt (230 V ± 10%). Voor jou als doe-het-zelver is het vooral nuttig om te weten dát zo'n vereenvoudiging bestaat, mocht je ooit een elektronicaschema tegenkomen dat ermee werkt.</p>
+  </div>
+  <div class="quiz"></div>
+</section>
+
+<footer>
+  <div class="wire" aria-hidden="true"><span class="w-ph"></span><span class="w-n"></span><span class="w-pe"></span></div>
+  <p>Deze module herschrijft, in Stroomwijs' eigen woorden en met eigen voorbeelden en toetsvragen, de basisfysica die aan bod komt in de cursus <i>"Elektriciteit voor dummies"</i> van M. Jacobs, Inhaalcursus SLPL Paardenmarkt Antwerpen. Met dank voor het beschikbaar stellen van dat lesmateriaal.</p>
+  <p><a href="https://slptech.be/Cursussen/Inhaalcursus/elektriciteit%20voor%20dummies1pdf.pdf" target="_blank" rel="noopener">Oorspronkelijke cursus-PDF (SLPtech)</a> · <a href="index.html">Terug naar de AREI-cursus</a></p>
+</footer>
+</main>
+</div>
+</body>
+</html>

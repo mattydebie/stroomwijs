@@ -54,11 +54,15 @@ document.querySelectorAll(".quiz").forEach(renderQuiz);
 renderNav();
 
 /* power calc */
-function calc(){const P=+document.getElementById("cP").value||0,U=+document.getElementById("cU").value||1;
-  document.getElementById("cI").textContent=(P/U).toLocaleString("nl-BE",{maximumFractionDigits:1})+" A";}
-["cP","cU"].forEach(id=>document.getElementById(id).addEventListener("input",calc));calc();
+const cP=document.getElementById("cP"),cU=document.getElementById("cU"),cI=document.getElementById("cI");
+if(cP&&cU&&cI){
+  const calc=()=>{const P=+cP.value||0,U=+cU.value||1;cI.textContent=(P/U).toLocaleString("nl-BE",{maximumFractionDigits:1})+" A";};
+  [cP,cU].forEach(e=>e.addEventListener("input",calc));calc();
+}
 
 /* circuit checker */
+const kType=document.getElementById("kType"),kSec=document.getElementById("kSec"),kAut=document.getElementById("kAut"),kPts=document.getElementById("kPts"),kDp=document.getElementById("kDp"),kDiff=document.getElementById("kDiff"),kStamp=document.getElementById("kStamp"),kList=document.getElementById("kList");
+if(kType&&kSec&&kAut&&kPts&&kDp&&kDiff&&kStamp&&kList){
 const MAXA={"1.5":16,"2.5":20,"4":25,"6":32,"10":40};
 function check(){
   const t=kType.value,s=kSec.value,a=+kAut.value,n=+kPts.value||0,dp=kDp.checked,df=kDiff.checked;
@@ -83,7 +87,7 @@ function check(){
   kStamp.textContent=ok?"Conform":"Niet conform";kStamp.className="stamp "+(ok?"ok":"nok");
   kList.innerHTML=out.map(([c,t])=>`<li class="${c}">${t}</li>`).join("");
 }
-const kType=document.getElementById("kType"),kSec=document.getElementById("kSec"),kAut=document.getElementById("kAut"),kPts=document.getElementById("kPts"),kDp=document.getElementById("kDp"),kDiff=document.getElementById("kDiff"),kStamp=document.getElementById("kStamp"),kList=document.getElementById("kList");
 [kType,kSec,kAut,kPts,kDp,kDiff].forEach(e=>e.addEventListener("input",check));check();
+}
 
 if(location.hash){const t=document.querySelector(location.hash);if(t)t.scrollIntoView();}
