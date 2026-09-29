@@ -199,7 +199,7 @@
   <ul class="tight">
     <li>In België gebruik je het type met <b>aardingspen</b> (penaarde): de pen steekt uit het stopcontact en raakt de aardingsopening van de stekker.</li>
     <li><b>Kinderbeveiliging:</b> sluitertjes in de openingen die enkel opengaan als beide polen tegelijk worden ingedrukt. Verplicht in woningen.</li>
-    <li><b>Inbouwdoos:</b> de ronde doos in de muur waarin het stopcontact of de schakelaar vastzit. Alle verbindingen zitten in een doos, nooit los in de muur.</li>
+    <li><b>Inbouwdoos:</b> de ronde doos in de muur waarin het stopcontact of de schakelaar vastzit. Alle verbindingen zitten in een doos, nooit los in de muur (zie ook "een kring in de praktijk" in <a href="#m3">module 03</a>).</li>
     <li><b>Verbindingsklemmen:</b> draden verbind je met schroef- of steekklemmen (zoals Wago), niet door ze in elkaar te draaien met isolatietape errond.</li>
   </ul>
 
@@ -311,6 +311,61 @@
       <li>Geen dubbele draad in een klem, tenzij de klem daarvoor gemaakt is (bij veel stopcontacten zijn er dubbele klemmen om door te lussen).</li>
       <li>Markeer bij een serieschakelaar of een dubbele wissel welke zwarte draad bij welke lamp hoort, met een stukje tape of een merkring.</li>
     </ul>
+  </div>
+
+  <h3>Van bord tot lichtpunt: een kring in de praktijk</h3>
+  <p>De schema's hierboven tonen de <b>elektrische logica</b>: welke draad waar naartoe gaat. Ze tonen niet hoe de kabel écht door een kamer loopt, van doos naar doos. Dat is een andere tekening, en minstens even belangrijk om te snappen voor je begint te boren.</p>
+  <div class="rule"><span class="tag">Regel · AREI afdeling 5.2.6</span>
+    <p>Elke verbinding, aansluiting of aftakking gebeurt in een <b>doos</b>: het bord, een aftak- of verbindingsdoos, de klemmen van een schakelaar of stopcontact, of de plafonddoos van een lichtpunt. Nooit losse draden met een lasklem in de holle muur of onder het pleisterwerk, zonder doos eromheen.</p>
+  </div>
+  <p>Een typische kamer met één lichtpunt, een schakelaar aan de deur en twee stopcontacten heeft dus twee kringen die elk hun eigen pad afleggen:</p>
+  <figure>
+    <svg viewBox="0 0 640 420" width="100%" role="img" aria-label="Plattegrond van een kamer met de kabelroute van het bord naar lichtpunt, schakelaar en stopcontacten">
+      <g style="stroke:var(--ink);fill:none" stroke-width="3" stroke-linejoin="round">
+        <path d="M170 40 H550 V300 H230 M190 300 H170 V40"/>
+      </g>
+      <text x="185" y="316" font-size="11" style="fill:var(--muted)">deur</text>
+      <rect x="20" y="55" width="115" height="70" rx="4" style="fill:var(--sunk);stroke:var(--ink)" stroke-width="1.5"/>
+      <text x="77" y="75" text-anchor="middle" font-size="12" font-weight="600" style="fill:var(--ink)">Verdeelbord</text>
+      <text x="77" y="93" text-anchor="middle" font-size="10.5" font-family="IBM Plex Mono,monospace" style="fill:var(--muted)">A · licht · C16</text>
+      <text x="77" y="108" text-anchor="middle" font-size="10.5" font-family="IBM Plex Mono,monospace" style="fill:var(--muted)">B · stopc. · C20</text>
+
+      <g style="stroke:var(--ink);fill:none" stroke-width="2" stroke-linecap="round">
+        <path d="M135 70 H155 V20 H400 V85"/>
+        <path d="M400 96 V130 H215 V265"/>
+        <path d="M135 108 H155 V345 H555 V145"/>
+        <path d="M555 155 V205"/>
+      </g>
+      <text x="200" y="14" font-size="10.5" style="fill:var(--muted)">XVB-F2 3G1,5² (F · N · PE) — kring A</text>
+      <text x="222" y="122" font-size="10.5" style="fill:var(--muted)">2 aders (F + geschakelde F)</text>
+      <text x="222" y="205" font-size="10.5" style="fill:var(--muted)">liefst ook een N mee, voor later</text>
+      <text x="200" y="359" font-size="10.5" style="fill:var(--muted)">XVB-F2 3G2,5² (F · N · PE) — kring B</text>
+      <text x="565" y="180" font-size="10.5" style="fill:var(--muted)">doorgelust,</text>
+      <text x="565" y="193" font-size="10.5" style="fill:var(--muted)">zelfde 3 aders</text>
+
+      <g style="stroke:var(--ink);fill:none" stroke-width="2.2" stroke-linecap="round">
+        <line x1="390" y1="80" x2="410" y2="100"/><line x1="390" y1="100" x2="410" y2="80"/>
+      </g>
+      <text x="400" y="60" text-anchor="middle" font-size="10.5" style="fill:var(--ink)">A1 · lichtpunt</text>
+
+      <circle cx="215" cy="270" r="5" style="stroke:var(--ink);fill:none" stroke-width="2.2"/>
+      <line x1="219" y1="266" x2="238" y2="247" style="stroke:var(--ink);fill:none" stroke-width="2.2" stroke-linecap="round"/>
+      <text x="215" y="245" text-anchor="middle" font-size="10.5" style="fill:var(--ink)">A2 · schakelaar</text>
+
+      <path d="M540 145 H555 V150" style="stroke:var(--ink);fill:none" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M540 140 A11 11 0 0 0 555 140" style="stroke:var(--ink);fill:none" stroke-width="2.2" stroke-linecap="round"/>
+      <text x="500" y="132" text-anchor="middle" font-size="10.5" style="fill:var(--ink)">B1</text>
+      <path d="M540 215 H555 V220" style="stroke:var(--ink);fill:none" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M540 210 A11 11 0 0 0 555 210" style="stroke:var(--ink);fill:none" stroke-width="2.2" stroke-linecap="round"/>
+      <text x="500" y="202" text-anchor="middle" font-size="10.5" style="fill:var(--ink)">B2</text>
+    </svg>
+    <figcaption>Kring A (licht) vertrekt van automaat A, gaat via het plafond naar de lichtpuntdoos (A1) en van daar met een aftakking naar de schakelaar bij de deur (A2). Kring B (stopcontacten) vertrekt van automaat B en wordt van het eerste stopcontact (B1) "doorgelust" naar het tweede (B2): dezelfde drie aders lopen gewoon door.</figcaption>
+  </figure>
+  <div class="tip"><span class="tag">Doorlussen is geen serieschakeling</span>
+    <p>Bij B1 en B2 lijkt het net of de stopcontacten "na elkaar" hangen, maar elektrisch staan ze gewoon <b>parallel</b>: beide krijgen de volle 230 V, onafhankelijk van elkaar. Je lust simpelweg de fase, nul en aarde door van de klemmen van het eerste stopcontact naar het tweede. Trekt het eerste stopcontact zijn stekker uit, dan blijft het tweede gewoon werken.</p>
+  </div>
+  <div class="why"><span class="tag">Waarom via de lichtpuntdoos naar de schakelaar?</span>
+    <p>Het is niet verplicht om de schakelaar via de plafonddoos te voeden; je kan evengoed eerst naar de schakelaar gaan en van daar naar de lamp. Maar met een kabelbaan die toch al naar het plafond loopt, is een aftakking naar beneden vaak de kortste weg. Zolang elke verbinding in een doos zit en de sectie klopt, mag je zelf kiezen welk pad de kabel volgt.</p>
   </div>
 
   <h3>Andere bedieningen</h3>
